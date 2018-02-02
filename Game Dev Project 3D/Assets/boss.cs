@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class boss : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class boss : MonoBehaviour
             GameObject newbossAttack = Instantiate(eye);
             newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(-1f, 1f), .03f);
             timer = 1f;
+        }
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("Win");
         }
     }
 
