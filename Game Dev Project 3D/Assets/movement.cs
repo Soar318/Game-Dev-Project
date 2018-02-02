@@ -6,6 +6,8 @@ public class movement : MonoBehaviour {
 
     float xSpeed = 5f;
     float ySpeed = 10f;
+    public int floorNumber = 1;
+    public int health = 5;
 
     Rigidbody myRigidbody;
 
@@ -13,7 +15,6 @@ public class movement : MonoBehaviour {
     private bool isMoving = false;
 
     public GameObject carrotSprite;
-
 
     // Use this for initialization
     void Start () {
@@ -40,9 +41,34 @@ public class movement : MonoBehaviour {
             GameObject newknifeSpriteObj = Instantiate(carrotSprite);
             newknifeSpriteObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
         }
-        if (Input.GetKey(KeyCode.W))
+        if (floorNumber == 1)
         {
-            transform.position = new Vector3(0, 1.7f, 2.55f);
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                transform.position = new Vector3(transform.position.x, 1f, 2.6f);
+                floorNumber = 2;
+            }
+        }
+        else if (floorNumber == 2)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                transform.position = new Vector3(transform.position.x, 3f, 7.6f);
+                floorNumber = 3;
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                transform.position = new Vector3(transform.position.x, -1f, 0f);
+                floorNumber = 1;
+            }
+        }
+        else if (floorNumber == 3)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                transform.position = new Vector3(transform.position.x, 1f, 2.6f);
+                floorNumber = 2;
+            }
         }
     }
 

@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 198357131}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: floor
+  m_TagString: floor reset
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -394,6 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be7dc68430e7114894a57e80be868bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorNumber: 1
   carrotSprite: {fileID: 985716910}
 --- !u!1 &575311057
 GameObject:
