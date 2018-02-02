@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class attack : MonoBehaviour {
+public class bossattack : MonoBehaviour {
 
     float xSpeed = 10f;
     Rigidbody myRigidbody;
@@ -14,6 +14,6 @@ public class attack : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        myRigidbody.velocity = new Vector2(xSpeed, 0);
+        myRigidbody.velocity = new Vector2(-xSpeed, 0);
     }
 }

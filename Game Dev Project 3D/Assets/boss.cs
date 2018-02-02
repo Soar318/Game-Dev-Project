@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class boss : MonoBehaviour
 {
-
+    public GameObject eye;
     public int health = 20;
     SpriteRenderer mySpriteRenderer;
-
+    float timer = 1f;
 
     // Use this for initialization
     void Start()
@@ -18,10 +18,16 @@ public class boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            GameObject newbossAttack = Instantiate(eye);
+            newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(-1f, 1f), .03f);
+            timer = 1f;
+        }
     }
 
-    void OnCollisionEnter(Collider collisionInfo)
+    void OnTriggerEnter(Collider collisionInfo)
     {
         if (collisionInfo.gameObject.tag == "player attack")
         {
@@ -29,7 +35,8 @@ public class boss : MonoBehaviour
             health -= 1;
         }
     }
-    void OnCollisionExit(Collision collision)
+
+    void OnTriggerExit(Collider other)
     {
         mySpriteRenderer.color = new Color(1, 1, 1);
     }

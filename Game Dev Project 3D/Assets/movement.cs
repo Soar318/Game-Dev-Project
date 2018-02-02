@@ -80,4 +80,12 @@ public class movement : MonoBehaviour {
         }
     }
 
+    void OnTriggerEnter(Collider collisionInfo)
+    {
+        if (collisionInfo.gameObject.tag == "boss attack")
+        {
+            health -= 1;
+        }
+    }
+
 }
