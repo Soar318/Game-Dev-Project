@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be7dc68430e7114894a57e80be868bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xSpeed: 13
+  ySpeed: 17
   floorNumber: 1
   health: 5
   carrotSprite: {fileID: 985716910}

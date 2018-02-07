@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class movement : MonoBehaviour {
 
-    float xSpeed = 5f;
-    float ySpeed = 10f;
+    public float xSpeed = 13f;
+    public float ySpeed = 17f;
     public int floorNumber = 1;
     public int health = 5;
 
@@ -23,20 +23,20 @@ public class movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             myRigidbody.velocity = new Vector2(-xSpeed, myRigidbody.velocity.y);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             myRigidbody.velocity = new Vector2(xSpeed, myRigidbody.velocity.y);
         }
-        if (Input.GetKey(KeyCode.Space) && isJumping != true)
+        if (Input.GetKey(KeyCode.UpArrow) && isJumping != true)
         {
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, ySpeed);
             isJumping = true;
         }
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject newknifeSpriteObj = Instantiate(carrotSprite);
             newknifeSpriteObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
@@ -69,6 +69,10 @@ public class movement : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, 1f, 2.6f);
                 floorNumber = 2;
             }
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
         }
     }
 
