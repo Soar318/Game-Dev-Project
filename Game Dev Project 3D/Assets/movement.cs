@@ -10,6 +10,7 @@ public class movement : MonoBehaviour {
     public int health = 5;
 
     Rigidbody myRigidbody;
+    BoxCollider myCollider;
 
     private bool isJumping = false;
     private bool isMoving = false;
@@ -19,10 +20,13 @@ public class movement : MonoBehaviour {
     // Use this for initialization
     void Start () {
         myRigidbody = GetComponent<Rigidbody>();
+        myCollider = GetComponent<BoxCollider>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
+
+        //Gen Movement
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             myRigidbody.velocity = new Vector2(-xSpeed, myRigidbody.velocity.y);
@@ -36,6 +40,18 @@ public class movement : MonoBehaviour {
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, ySpeed);
             isJumping = true;
         }
+        if (Input.GetKey(KeyCode.DownArrow) && isJumping != true)
+        {
+            myCollider.size = new Vector3(19.39f, 8f, 7.261f);
+            myCollider.center = new Vector3(0f, -4, 0f);
+        }
+        else if (Input.anyKey)
+        {
+            myCollider.size = new Vector3(19.39f, 17.14f, 7.261f);
+            myCollider.center = new Vector3(0, 0, 0);
+        }
+
+        //Teleport
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject newknifeSpriteObj = Instantiate(carrotSprite);
@@ -70,6 +86,8 @@ public class movement : MonoBehaviour {
                 floorNumber = 2;
             }
         }
+
+        //Pause
         if (Input.GetKey(KeyCode.Escape))
         {
             Time.timeScale = 0;
