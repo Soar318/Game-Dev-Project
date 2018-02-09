@@ -602,7 +602,7 @@ MonoBehaviour:
 
     W / S to move between layers
 
-    Escape to pause'
+    P to pause'
 --- !u!222 &1621759160
 CanvasRenderer:
   m_ObjectHideFlags: 0

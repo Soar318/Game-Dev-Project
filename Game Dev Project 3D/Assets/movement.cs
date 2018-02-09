@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class movement : MonoBehaviour {
 
@@ -14,8 +16,12 @@ public class movement : MonoBehaviour {
 
     private bool isJumping = false;
     private bool isMoving = false;
+    private bool isPaused = false;
 
     public GameObject carrotSprite;
+    public Text paused;
+    public Text restart;
+    public Text mainMenu;
 
     // Use this for initialization
     void Start () {
@@ -51,12 +57,14 @@ public class movement : MonoBehaviour {
             myCollider.center = new Vector3(0, 0, 0);
         }
 
-        //Teleport
+        //Attack
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject newknifeSpriteObj = Instantiate(carrotSprite);
             newknifeSpriteObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
         }
+
+        //Teleport
         if (floorNumber == 1)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -88,9 +96,41 @@ public class movement : MonoBehaviour {
         }
 
         //Pause
-        if (Input.GetKey(KeyCode.Escape))
+        if (isPaused == true)
         {
+            paused.color = new Color(1, 1, 1, 1);
+            restart.color = new Color(1, 1, 1, 1);
+            mainMenu.color = new Color(1, 1, 1, 1);
             Time.timeScale = 0;
+        }
+        else if (isPaused == false)
+        {
+            paused.color = new Color(1, 1, 1, 0);
+            restart.color = new Color(1, 1, 1, 0);
+            mainMenu.color = new Color(1, 1, 1, 0);
+            Time.timeScale = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) && isPaused != true)
+        {
+            isPaused = true;
+            Debug.Log("PAUSED");
+        }
+        else if (Input.GetKeyDown(KeyCode.P) && isPaused != false)
+        {
+            isPaused = false;
+            Debug.Log("PLAY");
+        }
+
+        if(Input.GetKey(KeyCode.E) && isPaused != false)
+        {
+            SceneManager.LoadScene("Game");
+            isPaused = false;
+        }
+        if(Input.GetKey(KeyCode.Escape) && isPaused != false)
+        {
+            SceneManager.LoadScene("Start Menu");
+            isPaused = false;
         }
     }
 
