@@ -10,6 +10,7 @@ public class movement : MonoBehaviour {
     public float ySpeed = 17f;
     public int floorNumber = 1;
     public int health = 5;
+    public float chargeCounter = 3;
 
     Rigidbody myRigidbody;
     BoxCollider myCollider;
@@ -19,6 +20,7 @@ public class movement : MonoBehaviour {
     private bool isPaused = false;
 
     public GameObject carrotSprite;
+    public GameObject cabbageSprite;
     public Text paused;
     public Text restart;
     public Text mainMenu;
@@ -33,11 +35,11 @@ public class movement : MonoBehaviour {
     void Update () {
 
         //Gen Movement
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             myRigidbody.velocity = new Vector2(-xSpeed, myRigidbody.velocity.y);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             myRigidbody.velocity = new Vector2(xSpeed, myRigidbody.velocity.y);
         }
@@ -60,8 +62,18 @@ public class movement : MonoBehaviour {
         //Attack
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject newknifeSpriteObj = Instantiate(carrotSprite);
-            newknifeSpriteObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
+            GameObject newcarrotSpriteObj = Instantiate(carrotSprite);
+            newcarrotSpriteObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            chargeCounter -= Time.deltaTime;
+        }
+        if (chargeCounter <= 0)
+        {
+            GameObject newcabbageSpriteObj = Instantiate(cabbageSprite);
+            newcabbageSpriteObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
+            chargeCounter = 3;
         }
 
         //Teleport
@@ -122,12 +134,12 @@ public class movement : MonoBehaviour {
             Debug.Log("PLAY");
         }
 
-        if(Input.GetKey(KeyCode.E) && isPaused != false)
+        if (Input.GetKey(KeyCode.E) && isPaused != false)
         {
             SceneManager.LoadScene("Game");
             isPaused = false;
         }
-        if(Input.GetKey(KeyCode.Escape) && isPaused != false)
+        if (Input.GetKey(KeyCode.Escape) && isPaused != false)
         {
             SceneManager.LoadScene("Start Menu");
             isPaused = false;

@@ -71,7 +71,13 @@ public class boss : MonoBehaviour
             mySpriteRenderer.color = new Color(1, 0, 0);
             health -= 1;
         }
+        if (collisionInfo.gameObject.tag == "charge attack")
+        {
+            mySpriteRenderer.color = new Color(1, 0, 0);
+            health -= 5;
+        }
     }
+
 
     void OnTriggerExit(Collider other)
     {
