@@ -21,6 +21,9 @@ public class movement : MonoBehaviour {
 
     public GameObject carrotSprite;
     public GameObject cabbageSprite;
+    public GameObject floor1Background;
+    public GameObject floor2Background;
+    public GameObject floor3Background;
     public Text paused;
     public Text restart;
     public Text mainMenu;
@@ -77,6 +80,10 @@ public class movement : MonoBehaviour {
         }
 
         //Teleport
+        floor1Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        floor2Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        floor3Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+
         if (floorNumber == 1)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -84,6 +91,7 @@ public class movement : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, 1f, 2.6f);
                 floorNumber = 2;
             }
+            floor1Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
         else if (floorNumber == 2)
         {
@@ -97,6 +105,7 @@ public class movement : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, -1f, 0f);
                 floorNumber = 1;
             }
+            floor2Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
         else if (floorNumber == 3)
         {
@@ -105,6 +114,7 @@ public class movement : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, 1f, 2.6f);
                 floorNumber = 2;
             }
+            floor3Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
 
         //Pause

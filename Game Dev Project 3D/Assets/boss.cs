@@ -51,7 +51,7 @@ public class boss : MonoBehaviour
             if (waveTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(heart);
-                newbossAttack.transform.position = new Vector3(transform.position.x, -.55f, .03f);
+                newbossAttack.transform.position = new Vector3(transform.position.x, -.72f, .03f);
                 waveTimer = 3f;
             }
            
