@@ -7,6 +7,8 @@ public class boss : MonoBehaviour
 {
     public GameObject eye;
     public GameObject heart;
+    public GameObject bone;
+    public GameObject skull;
 
     public int health = 50;
 
@@ -14,9 +16,13 @@ public class boss : MonoBehaviour
 
     float pelletTimer = 1f;
     float waveTimer = 3f;
-    public float attackCounterTimer = 5f;
+    float columnTimer = 2f;
+    float ballTimer = 3f;
+    public float attackCounterTimer1 = 5f;
+    public float attackCounterTimer2 = 5f;
 
-    public int attackCounter;
+    public int attackCounter1;
+    public int attackCounter2;
 
     // Use this for initialization
     void Start()
@@ -29,15 +35,23 @@ public class boss : MonoBehaviour
     {
         pelletTimer -= Time.deltaTime;
         waveTimer -= Time.deltaTime;
-        attackCounterTimer -= Time.deltaTime;
+        columnTimer -= Time.deltaTime;
+        ballTimer -= Time.deltaTime;
+        attackCounterTimer1 -= Time.deltaTime;
+        attackCounterTimer2 -= Time.deltaTime;
 
-        if (attackCounterTimer <= 0)
+        if (attackCounterTimer1 <= 0)
         {
-            attackCounter = Random.Range(1, 5);
-            attackCounterTimer = 5f;
+            attackCounter1 = Random.Range(1, 5);
+            attackCounterTimer1 = 5f;
+        }
+        if (attackCounterTimer2 <= 0)
+        {
+            attackCounter2 = Random.Range(1, 5);
+            attackCounterTimer2 = 5f;
         }
         
-        if (attackCounter == 1)
+        if (attackCounter1 == 1 || attackCounter2 == 2)
         {
             if (pelletTimer <= 0)
             {
@@ -46,20 +60,36 @@ public class boss : MonoBehaviour
                 pelletTimer = 1f;
             }
         }
-        if (attackCounter == 2)
+        if (attackCounter1 == 2 || attackCounter2 == 3)
         {
             if (waveTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(heart);
-                newbossAttack.transform.position = new Vector3(transform.position.x, -.72f, .03f);
+                newbossAttack.transform.position = new Vector3(transform.position.x, -1f, .03f);
                 waveTimer = 3f;
             }
-           
+        }
+        if (attackCounter1 == 3 || attackCounter2 == 1)
+        {
+            if (columnTimer <= 0)
+            {
+                GameObject newbossAttack = Instantiate(bone);
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, -1.12f);
+                columnTimer = 2f;
+            }         
+        }
+        if (attackCounter1 == 4 || attackCounter2 == 5)
+        {
+            if (ballTimer <= 0)
+            {
+                GameObject newbossAttack = Instantiate(skull);
+                newbossAttack.transform.position = new Vector3(transform.position.x, 8.92f, -.44f);
+                ballTimer = 3f;
+            }
         }
         
         if (health <= 0)
         {
-            Destroy(gameObject);
             SceneManager.LoadScene("Win");
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bossattack : MonoBehaviour {
 
-    float xSpeed = 10f;
+    float xSpeed = 6.5f;
     Rigidbody myRigidbody;
 
     // Use this for initialization
