@@ -11,6 +11,6 @@ public class ball : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position += new Vector3 (-.05f, 0, 0);
+        transform.position += new Vector3 (-.08f, 0, 0);
 	}
 }

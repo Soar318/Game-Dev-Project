@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class boss : MonoBehaviour
@@ -9,6 +10,9 @@ public class boss : MonoBehaviour
     public GameObject heart;
     public GameObject bone;
     public GameObject skull;
+    public GameObject tongue;
+
+    public Image healthBar;
 
     public int health = 50;
 
@@ -18,11 +22,10 @@ public class boss : MonoBehaviour
     float waveTimer = 3f;
     float columnTimer = 2f;
     float ballTimer = 3f;
+    float beamTimer = 3f;
     public float attackCounterTimer1 = 5f;
-    public float attackCounterTimer2 = 5f;
 
     public int attackCounter1;
-    public int attackCounter2;
 
     // Use this for initialization
     void Start()
@@ -37,21 +40,16 @@ public class boss : MonoBehaviour
         waveTimer -= Time.deltaTime;
         columnTimer -= Time.deltaTime;
         ballTimer -= Time.deltaTime;
+        beamTimer -= Time.deltaTime;
         attackCounterTimer1 -= Time.deltaTime;
-        attackCounterTimer2 -= Time.deltaTime;
 
         if (attackCounterTimer1 <= 0)
         {
             attackCounter1 = Random.Range(1, 5);
             attackCounterTimer1 = 5f;
         }
-        if (attackCounterTimer2 <= 0)
-        {
-            attackCounter2 = Random.Range(1, 5);
-            attackCounterTimer2 = 5f;
-        }
         
-        if (attackCounter1 == 1 || attackCounter2 == 2)
+        if (attackCounter1 == 1)
         {
             if (pelletTimer <= 0)
             {
@@ -60,7 +58,7 @@ public class boss : MonoBehaviour
                 pelletTimer = 1f;
             }
         }
-        if (attackCounter1 == 2 || attackCounter2 == 3)
+        if (attackCounter1 == 2)
         {
             if (waveTimer <= 0)
             {
@@ -69,7 +67,7 @@ public class boss : MonoBehaviour
                 waveTimer = 3f;
             }
         }
-        if (attackCounter1 == 3 || attackCounter2 == 1)
+        if (attackCounter1 == 3)
         {
             if (columnTimer <= 0)
             {
@@ -78,7 +76,7 @@ public class boss : MonoBehaviour
                 columnTimer = 2f;
             }         
         }
-        if (attackCounter1 == 4 || attackCounter2 == 5)
+        if (attackCounter1 == 4)
         {
             if (ballTimer <= 0)
             {
@@ -87,7 +85,17 @@ public class boss : MonoBehaviour
                 ballTimer = 3f;
             }
         }
-        
+        if (attackCounter1 == 5)
+        {
+            if (beamTimer <= 0)
+            {
+                GameObject newbossAttack = Instantiate(tongue);
+                newbossAttack.transform.position = new Vector3(17.75f, -.73f, -.54f);
+                beamTimer = 3f;
+            }
+            
+        }
+
         if (health <= 0)
         {
             SceneManager.LoadScene("Win");
@@ -100,11 +108,13 @@ public class boss : MonoBehaviour
         {
             mySpriteRenderer.color = new Color(1, 0, 0);
             health -= 1;
+            healthBar.rectTransform.localScale -= new Vector3(.09486f, 0, 0);
         }
         if (collisionInfo.gameObject.tag == "charge attack")
         {
             mySpriteRenderer.color = new Color(1, 0, 0);
             health -= 5;
+            healthBar.rectTransform.localScale -= new Vector3(.474334f, 0, 0);
         }
     }
 

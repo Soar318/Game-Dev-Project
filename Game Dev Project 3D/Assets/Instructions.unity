@@ -136,15 +136,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 347415333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -51.600006, y: 77.295, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -75.063, y: 148, z: 0}
+  m_LocalScale: {x: 1.8513234, y: 1.8513238, z: 1.8513238}
   m_Children: []
   m_Father: {fileID: 383138996}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.6, y: 77.295}
+  m_AnchoredPosition: {x: -75.063, y: 148}
   m_SizeDelta: {x: 354.37, y: 91.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &347415335
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -268,8 +268,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 383138992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 218.5, y: 123, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 241.5, y: 136, z: 0}
+  m_LocalScale: {x: 0.60375, y: 0.60375, z: 0.60375}
   m_Children:
   - {fileID: 347415334}
   - {fileID: 1621759158}
@@ -553,16 +553,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1621759157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.149994, y: -15.999996, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -29.599998, z: 0}
+  m_LocalScale: {x: 1.8513234, y: 1.8513238, z: 1.8513238}
   m_Children: []
   m_Father: {fileID: 383138996}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.15, y: -16}
-  m_SizeDelta: {x: 361.4, y: 109.4}
+  m_AnchoredPosition: {x: 0.00000047684, y: -29.6}
+  m_SizeDelta: {x: 361.4, y: 124.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1621759159
 MonoBehaviour:
@@ -596,15 +596,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ARROW KEYS to move
+  m_Text: 'A / D to move
 
     SPACE to attack
 
-    SHIFT to charge special attack
+    HOLD SHIFT to charge special attack
 
     W / S to move between layers
 
-    P to pause'
+    P to pause
+
+    ESCAPE to go back to Main Menu'
 --- !u!222 &1621759160
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -635,15 +637,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1632820847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -91.99999, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 20.466003, y: -168.92407, z: 0}
+  m_LocalScale: {x: 1.8513234, y: 1.8513238, z: 1.8513238}
   m_Children: []
   m_Father: {fileID: 383138996}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -92}
+  m_AnchoredPosition: {x: 20.466, y: -168.92407}
   m_SizeDelta: {x: 361.41, y: 99.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1632820849

@@ -10,7 +10,7 @@ public class movement : MonoBehaviour {
     public float ySpeed = 17f;
     public int floorNumber = 1;
     public int health = 5;
-    public float chargeCounter = 3;
+    public float chargeCounter = 0;
     public float attackCooldown = .5f;
 
     Rigidbody myRigidbody;
@@ -35,6 +35,9 @@ public class movement : MonoBehaviour {
     public Text tryAgain;
     public Text quit;
 
+    public Image healthBar;
+    public Image chargeBar;
+
     // Use this for initialization
     void Start () {
         myRigidbody = GetComponent<Rigidbody>();
@@ -46,15 +49,17 @@ public class movement : MonoBehaviour {
     void Update () {
 
         //MOVEMENT
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             myRigidbody.velocity = new Vector2(-xSpeed, myRigidbody.velocity.y);
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             myRigidbody.velocity = new Vector2(xSpeed, myRigidbody.velocity.y);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && isJumping != true)
+
+        //JUMPING AND DUCKING
+        /*if (Input.GetKey(KeyCode.UpArrow) && isJumping != true)
         {
             myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, ySpeed);
             isJumping = true;
@@ -68,7 +73,7 @@ public class movement : MonoBehaviour {
         {
             myCollider.size = new Vector3(19.39f, 11.01937f, 7.261f);
             myCollider.center = new Vector3(0, -2.544112f, 0);
-        }
+        }*/
 
         //ATTACK
         attackCooldown -= Time.deltaTime;
@@ -81,15 +86,28 @@ public class movement : MonoBehaviour {
                 attackCooldown = .5f;
             }
         }
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            chargeCounter -= Time.deltaTime;
+            chargeCounter += Time.deltaTime;
+            chargeBar.rectTransform.localScale += new Vector3(.0133f, 0, 0);
         }
-        if (chargeCounter <= 0)
+        else
+        {
+            chargeCounter -= Time.deltaTime;
+            chargeBar.rectTransform.localScale -= new Vector3(.0133f, 0, 0);
+        }
+        if (chargeCounter >= 3)
         {
             GameObject newcabbageSpriteObj = Instantiate(cabbageSprite);
             newcabbageSpriteObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
-            chargeCounter = 3;
+            chargeCounter = 0;
+            chargeBar.rectTransform.localScale = new Vector3(0, 0.3839271f, 2.249413f);
+        }
+        if (chargeCounter < 0 || Time.timeScale == 0)
+        {
+            chargeCounter = 0;
+            chargeBar.rectTransform.localScale = new Vector3(0, 0.3839271f, 2.249413f);
         }
 
         //TELEPORT
@@ -210,7 +228,14 @@ public class movement : MonoBehaviour {
         if (collisionInfo.gameObject.tag == "boss attack")
         {
             health -= 1;
+            mySprite.color = new Color(1, 0, 0);
+            healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
         }
+    }
+
+    void OnTriggerExit(Collider collisionInfo)
+    {
+        mySprite.color = new Color(1, 1, 1);
     }
 
 }
