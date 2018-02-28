@@ -27,6 +27,9 @@ public class movement : MonoBehaviour {
     public GameObject floor1Background;
     public GameObject floor2Background;
     public GameObject floor3Background;
+    public GameObject boss1;
+    public GameObject boss2;
+    public GameObject boss3;
 
     public Text paused;
     public Text restart;
@@ -212,6 +215,11 @@ public class movement : MonoBehaviour {
         {
             SceneManager.LoadScene("Start Menu");
             noHealth = false;
+        }
+
+        if (boss1 == null && boss2 == null && boss3 == null)
+        {
+            SceneManager.LoadScene("Win");
         }
     }
 

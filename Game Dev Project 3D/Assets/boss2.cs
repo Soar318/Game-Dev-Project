@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class boss : MonoBehaviour
-{
-    public GameObject eye;
-    public GameObject heart;
-    public GameObject bone;
-    public GameObject skull;
+public class boss2 : MonoBehaviour {
+
+    public GameObject hairball;
+    public GameObject rat;
+    public GameObject paw;
+    public GameObject yarn;
     public GameObject tongue;
 
     public Image healthBar;
@@ -28,14 +28,13 @@ public class boss : MonoBehaviour
     public int attackCounter1;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start () {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
         pelletTimer -= Time.deltaTime;
         waveTimer -= Time.deltaTime;
         columnTimer -= Time.deltaTime;
@@ -48,13 +47,13 @@ public class boss : MonoBehaviour
             attackCounter1 = Random.Range(1, 5);
             attackCounterTimer1 = 5f;
         }
-        
+
         if (attackCounter1 == 1)
         {
             if (pelletTimer <= 0)
             {
-                GameObject newbossAttack = Instantiate(eye);
-                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(-1f, 1f), .03f);
+                GameObject newbossAttack = Instantiate(hairball);
+                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(0f, 2.5f), 2.6f);
                 pelletTimer = 1f;
             }
         }
@@ -62,8 +61,8 @@ public class boss : MonoBehaviour
         {
             if (waveTimer <= 0)
             {
-                GameObject newbossAttack = Instantiate(heart);
-                newbossAttack.transform.position = new Vector3(transform.position.x, -1f, .03f);
+                GameObject newbossAttack = Instantiate(rat);
+                newbossAttack.transform.position = new Vector3(transform.position.x, .49f, 2.6f);
                 waveTimer = 3f;
             }
         }
@@ -71,17 +70,17 @@ public class boss : MonoBehaviour
         {
             if (columnTimer <= 0)
             {
-                GameObject newbossAttack = Instantiate(bone);
-                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, -1.12f);
+                GameObject newbossAttack = Instantiate(paw);
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, 1.8f);
                 columnTimer = 2f;
-            }         
+            }
         }
         if (attackCounter1 == 4)
         {
             if (ballTimer <= 0)
             {
-                GameObject newbossAttack = Instantiate(skull);
-                newbossAttack.transform.position = new Vector3(transform.position.x, 8.92f, -.44f);
+                GameObject newbossAttack = Instantiate(yarn);
+                newbossAttack.transform.position = new Vector3(transform.position.x, 8.92f, 2.6f);
                 ballTimer = 3f;
             }
         }
@@ -90,10 +89,10 @@ public class boss : MonoBehaviour
             if (beamTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(tongue);
-                newbossAttack.transform.position = new Vector3(17.75f, -.73f, -.54f);
+                newbossAttack.transform.position = new Vector3(16.53f, -.65f, 1.93f);
                 beamTimer = 3f;
             }
-            
+
         }
 
         if (health <= 0)
@@ -101,7 +100,6 @@ public class boss : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     void OnTriggerEnter(Collider collisionInfo)
     {
         if (collisionInfo.gameObject.tag == "player attack")
