@@ -11,6 +11,7 @@ public class boss3 : MonoBehaviour {
     public GameObject stick;
     public GameObject rose;
     public GameObject tongue;
+    public GameObject rabbit;
 
     public Image healthBar;
 
@@ -99,6 +100,25 @@ public class boss3 : MonoBehaviour {
             if (health <= 0)
             {
                 Destroy(gameObject);
+            }
+
+            if (rabbit.GetComponent<movement>().floorNumber == 3)
+            {
+                mySpriteRenderer.color = new Color(1, 1, 1, 1);
+                feather.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                stick.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                rose.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                egg.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            }
+            else if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 2)
+            {
+                mySpriteRenderer.color = new Color(1, 1, 1, .3f);
+                feather.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+                stick.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+                rose.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+                egg.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+                tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
             }
         }
     }

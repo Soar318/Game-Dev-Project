@@ -11,6 +11,7 @@ public class boss : MonoBehaviour
     public GameObject bone;
     public GameObject skull;
     public GameObject tongue;
+    public GameObject rabbit;
 
     public Image healthBar;
 
@@ -99,6 +100,25 @@ public class boss : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+
+        if (rabbit.GetComponent<movement>().floorNumber == 1)
+        {
+            mySpriteRenderer.color = new Color(1, 1, 1, 1);
+            eye.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            heart.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            skull.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            bone.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
+        else if (rabbit.GetComponent<movement>().floorNumber == 2 || rabbit.GetComponent<movement>().floorNumber == 3)
+        {
+            mySpriteRenderer.color = new Color(1, 1, 1, .3f);
+            eye.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            heart.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            skull.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            bone.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
         }
     }
 

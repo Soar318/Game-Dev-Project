@@ -126,6 +126,8 @@ public class movement : MonoBehaviour {
                 floorNumber = 2;
             }
             floor1Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            
+
         }
         else if (floorNumber == 2)
         {

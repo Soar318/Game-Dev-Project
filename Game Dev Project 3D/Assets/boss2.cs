@@ -11,6 +11,7 @@ public class boss2 : MonoBehaviour {
     public GameObject paw;
     public GameObject yarn;
     public GameObject tongue;
+    public GameObject rabbit;
 
     public Image healthBar;
 
@@ -28,9 +29,9 @@ public class boss2 : MonoBehaviour {
     public int attackCounter1;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-
     }
 
     // Update is called once per frame
@@ -98,6 +99,25 @@ public class boss2 : MonoBehaviour {
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+
+        if (rabbit.GetComponent<movement>().floorNumber == 2)
+        {
+            mySpriteRenderer.color = new Color(1, 1, 1, 1);
+            hairball.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            rat.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            yarn.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            paw.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
+        else if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 3)
+        {
+            mySpriteRenderer.color = new Color(1, 1, 1, .3f);
+            hairball.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            rat.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            yarn.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            paw.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
         }
     }
     void OnTriggerEnter(Collider collisionInfo)

@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 52151041}
   - component: {fileID: 52151044}
   - component: {fileID: 52151043}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: paw
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 75888096}
   - component: {fileID: 75888095}
   - component: {fileID: 75888094}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: stick
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 171120163}
   - component: {fileID: 171120162}
   - component: {fileID: 171120161}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cube (2)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 198357133}
   - component: {fileID: 198357132}
   - component: {fileID: 198357131}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 232133180}
   - component: {fileID: 232133179}
   - component: {fileID: 232133183}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: feather
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 255558407}
   - component: {fileID: 255558406}
   - component: {fileID: 255558410}
-  m_Layer: 1
+  m_Layer: 8
   m_Name: rabbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 320901513}
   - component: {fileID: 320901512}
   - component: {fileID: 320901511}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1521,7 @@ GameObject:
   - component: {fileID: 575311058}
   - component: {fileID: 575311060}
   - component: {fileID: 575311061}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: fox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1601,6 +1601,7 @@ MonoBehaviour:
   bone: {fileID: 1422491629}
   skull: {fileID: 821196541}
   tongue: {fileID: 106821345}
+  rabbit: {fileID: 255558405}
   healthBar: {fileID: 370954955}
   health: 1
   attackCounterTimer1: 5
@@ -1947,7 +1948,7 @@ GameObject:
   - component: {fileID: 821196542}
   - component: {fileID: 821196546}
   - component: {fileID: 821196547}
-  m_Layer: 4
+  m_Layer: 9
   m_Name: skull
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -2213,7 +2214,7 @@ GameObject:
   - component: {fileID: 871459687}
   - component: {fileID: 871459686}
   - component: {fileID: 871459689}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2305,8 +2306,9 @@ MonoBehaviour:
   paw: {fileID: 52151040}
   yarn: {fileID: 2122512721}
   tongue: {fileID: 106821345}
+  rabbit: {fileID: 255558405}
   healthBar: {fileID: 1439740576}
-  health: 1
+  health: 50
   attackCounterTimer1: 5
   attackCounter1: 0
 --- !u!1 &921322045
@@ -2515,7 +2517,7 @@ GameObject:
   - component: {fileID: 989127667}
   - component: {fileID: 989127666}
   - component: {fileID: 989127665}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hairball
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -2918,7 +2920,7 @@ GameObject:
   - component: {fileID: 1352395928}
   - component: {fileID: 1352395931}
   - component: {fileID: 1352395932}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: heart
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -3031,7 +3033,7 @@ GameObject:
   - component: {fileID: 1422491630}
   - component: {fileID: 1422491633}
   - component: {fileID: 1422491632}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -3610,7 +3612,7 @@ GameObject:
   - component: {fileID: 1745293848}
   - component: {fileID: 1745293849}
   - component: {fileID: 1745293847}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: eye
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -3798,7 +3800,7 @@ GameObject:
   - component: {fileID: 1866849071}
   - component: {fileID: 1866849070}
   - component: {fileID: 1866849074}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: egg
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -3986,7 +3988,7 @@ GameObject:
   - component: {fileID: 1930624155}
   - component: {fileID: 1930624154}
   - component: {fileID: 1930624153}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: rat
   m_TagString: boss attack
   m_Icon: {fileID: 0}
@@ -4099,7 +4101,7 @@ GameObject:
   - component: {fileID: 1941726796}
   - component: {fileID: 1941726795}
   - component: {fileID: 1941726794}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -4326,9 +4328,9 @@ GameObject:
   - component: {fileID: 2005889358}
   - component: {fileID: 2005889357}
   - component: {fileID: 2005889356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rose
-  m_TagString: Untagged
+  m_TagString: boss attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4614,7 +4616,7 @@ GameObject:
   - component: {fileID: 2108159816}
   - component: {fileID: 2108159815}
   - component: {fileID: 2108159818}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: eagle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4706,6 +4708,7 @@ MonoBehaviour:
   stick: {fileID: 75888093}
   rose: {fileID: 2005889355}
   tongue: {fileID: 106821345}
+  rabbit: {fileID: 255558405}
   healthBar: {fileID: 31404004}
   health: 1
   attackCounterTimer1: 5
@@ -4722,7 +4725,7 @@ GameObject:
   - component: {fileID: 2122512725}
   - component: {fileID: 2122512724}
   - component: {fileID: 2122512726}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: yarn
   m_TagString: boss attack
   m_Icon: {fileID: 0}
