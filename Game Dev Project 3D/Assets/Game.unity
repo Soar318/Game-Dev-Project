@@ -136,7 +136,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 31404002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 248, z: 0}
+  m_LocalPosition: {x: 470, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.5204802, z: 2.2494066}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -1197,7 +1197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &334358964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,8 +1262,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 334358963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 375, y: 211, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 477257535}
   - {fileID: 1910468824}
@@ -1318,7 +1318,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 370954953}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -620, y: 248, z: 0}
+  m_LocalPosition: {x: -170, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.5204858, z: 2.249413}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -1603,7 +1603,7 @@ MonoBehaviour:
   tongue: {fileID: 106821345}
   rabbit: {fileID: 255558405}
   healthBar: {fileID: 370954955}
-  health: 1
+  health: 50
   attackCounterTimer1: 5
   attackCounter1: 1
 --- !u!65 &575311061
@@ -1790,7 +1790,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 719259929}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -130, y: 248, z: 0}
+  m_LocalPosition: {x: 320, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.5204802, z: 2.2494066}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -1858,7 +1858,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800353104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 199, y: -207, z: 0}
+  m_LocalPosition: {x: -251.00002, y: -207, z: 0}
   m_LocalScale: {x: 2.271617, y: 0.3839262, z: 2.2494142}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -2086,7 +2086,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 826413822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -449.90002, y: 248, z: 0}
+  m_LocalPosition: {x: 0.099975586, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.52047056, z: 2.2494116}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -2791,7 +2791,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1131958657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 109.600006, y: -207, z: 0}
+  m_LocalPosition: {x: -340.4, y: -207, z: 0}
   m_LocalScale: {x: 0, y: 0.38392714, z: 2.249413}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -3148,7 +3148,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1439740574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -299.90002, y: 248, z: 0}
+  m_LocalPosition: {x: 150.09998, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.52049404, z: 2.2494116}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -3556,7 +3556,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1619594477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 176.81, y: -255, z: 0}
+  m_LocalPosition: {x: -273.19, y: -255, z: 0}
   m_LocalScale: {x: 3.179332, y: 0.38392714, z: 2.249413}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -4198,7 +4198,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1953562866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -770, y: 248, z: 0}
+  m_LocalPosition: {x: -320, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.5204789, z: 2.2494059}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -4487,7 +4487,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2025727959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18, y: -255, z: 0}
+  m_LocalPosition: {x: -432, y: -255, z: 0}
   m_LocalScale: {x: 3.179332, y: 0.38392714, z: 2.249413}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -4710,7 +4710,7 @@ MonoBehaviour:
   tongue: {fileID: 106821345}
   rabbit: {fileID: 255558405}
   healthBar: {fileID: 31404004}
-  health: 1
+  health: 50
   attackCounterTimer1: 5
   attackCounter1: 4
 --- !u!1 &2122512721

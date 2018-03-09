@@ -90,7 +90,7 @@ public class movement : MonoBehaviour {
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && (!Input.GetKey(KeyCode.Space)))
         {
             chargeCounter += Time.deltaTime;
             chargeBar.rectTransform.localScale += new Vector3(.0133f, 0, 0);
