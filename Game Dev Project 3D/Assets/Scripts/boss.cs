@@ -9,7 +9,6 @@ public class boss : MonoBehaviour
     public GameObject eye;
     public GameObject heart;
     public GameObject bone;
-    public GameObject tongue;
     public GameObject rabbit;
 
     public Image healthBar;
@@ -17,12 +16,12 @@ public class boss : MonoBehaviour
     public int health = 50;
 
     SpriteRenderer mySpriteRenderer;
+    Animator myAnimator;
 
     float pelletTimer = 1f;
     float waveTimer = 3f;
     float columnTimer = 2f;
     float idleTimer = 3f;
-    float beamTimer = 3f;
     public float attackCounterTimer1 = 5f;
 
     public int attackCounter1;
@@ -31,6 +30,7 @@ public class boss : MonoBehaviour
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,12 +40,11 @@ public class boss : MonoBehaviour
         waveTimer -= Time.deltaTime;
         columnTimer -= Time.deltaTime;
         idleTimer -= Time.deltaTime;
-        beamTimer -= Time.deltaTime;
         attackCounterTimer1 -= Time.deltaTime;
 
         if (attackCounterTimer1 <= 0)
         {
-            attackCounter1 = Random.Range(1, 5);
+            attackCounter1 = Random.Range(1, 4);
             attackCounterTimer1 = 5f;
         }
         
@@ -57,6 +56,8 @@ public class boss : MonoBehaviour
                 newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(-1f, 1f), .03f);
                 pelletTimer = 1f;
             }
+
+            myAnimator.Play("Boss 1 Attack");
         }
         if (attackCounter1 == 2)
         {
@@ -66,6 +67,8 @@ public class boss : MonoBehaviour
                 newbossAttack.transform.position = new Vector3(transform.position.x, -1f, .03f);
                 waveTimer = 3f;
             }
+
+            myAnimator.Play("Boss 1 Attack");
         }
         if (attackCounter1 == 3)
         {
@@ -74,7 +77,9 @@ public class boss : MonoBehaviour
                 GameObject newbossAttack = Instantiate(bone);
                 newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, -1.12f);
                 columnTimer = 2f;
-            }         
+            }
+
+            myAnimator.Play("Boss 1 Attack");
         }
         if (attackCounter1 == 4)
         {
@@ -82,16 +87,8 @@ public class boss : MonoBehaviour
             {
                 idleTimer = 3f;
             }
-        }
-        if (attackCounter1 == 5)
-        {
-            if (beamTimer <= 0)
-            {
-                GameObject newbossAttack = Instantiate(tongue);
-                newbossAttack.transform.position = new Vector3(17.75f, -.73f, -.54f);
-                beamTimer = 3f;
-            }
-            
+
+            myAnimator.Play("Boss 1 Idle");
         }
 
         if (health <= 0)
@@ -105,7 +102,6 @@ public class boss : MonoBehaviour
             eye.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             heart.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             bone.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
         else if (rabbit.GetComponent<movement>().floorNumber == 2 || rabbit.GetComponent<movement>().floorNumber == 3)
         {
@@ -113,7 +109,6 @@ public class boss : MonoBehaviour
             eye.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
             heart.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
             bone.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-            tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
         }
     }
 

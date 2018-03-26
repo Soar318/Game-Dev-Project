@@ -9,7 +9,6 @@ public class boss3 : MonoBehaviour {
     public GameObject feather;
     public GameObject egg;
     public GameObject stick;
-    public GameObject tongue;
     public GameObject rabbit;
 
     public Image healthBar;
@@ -22,7 +21,6 @@ public class boss3 : MonoBehaviour {
     float waveTimer = 3f;
     float columnTimer = 2f;
     float idleTimer = 3f;
-    float beamTimer = 3f;
     public float attackCounterTimer1 = 5f;
 
     public int attackCounter1;
@@ -40,12 +38,11 @@ public class boss3 : MonoBehaviour {
             waveTimer -= Time.deltaTime;
             columnTimer -= Time.deltaTime;
             idleTimer -= Time.deltaTime;
-            beamTimer -= Time.deltaTime;
             attackCounterTimer1 -= Time.deltaTime;
 
             if (attackCounterTimer1 <= 0)
             {
-                attackCounter1 = Random.Range(1, 5);
+                attackCounter1 = Random.Range(1, 4);
                 attackCounterTimer1 = 5f;
             }
 
@@ -83,16 +80,7 @@ public class boss3 : MonoBehaviour {
                     idleTimer = 3f;
                 }
             }
-            if (attackCounter1 == 5)
-            {
-                if (beamTimer <= 0)
-                {
-                    GameObject newbossAttack = Instantiate(tongue);
-                    newbossAttack.transform.position = new Vector3(19.59f, 1.95f, 6.85f);
-                    beamTimer = 3f;
-                }
 
-            }
 
             if (health <= 0)
             {
@@ -105,7 +93,6 @@ public class boss3 : MonoBehaviour {
                 feather.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                 stick.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                 egg.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             }
             else if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 2)
             {
@@ -113,7 +100,6 @@ public class boss3 : MonoBehaviour {
                 feather.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
                 stick.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
                 egg.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-                tongue.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
             }
         }
     }

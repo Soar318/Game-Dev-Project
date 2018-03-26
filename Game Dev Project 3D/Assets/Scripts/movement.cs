@@ -18,7 +18,7 @@ public class movement : MonoBehaviour {
     SpriteRenderer mySprite;
     Animator myAnimator;
 
-    private bool isJumping = false;
+    //private bool isJumping = false;
     private bool isPaused = false;
     private bool noHealth = false;
 
@@ -51,8 +51,6 @@ public class movement : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        myAnimator.Play("Player Run Sketch");
 
         //MOVEMENT
         if (Input.GetKey(KeyCode.A))
@@ -228,13 +226,13 @@ public class movement : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+    /*void OnCollisionEnter(Collision collisionInfo)
     {
         if (collisionInfo.gameObject.tag == "floor")
         {
             isJumping = false;
         }
-    }
+    }*/
 
     void OnTriggerEnter(Collider collisionInfo)
     {
