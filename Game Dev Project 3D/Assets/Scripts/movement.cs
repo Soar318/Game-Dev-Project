@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class movement : MonoBehaviour {
 
+    public float speed = 0.05f;
     public float xSpeed = 13f;
     public float ySpeed = 17f;
     public int floorNumber = 1;
@@ -18,7 +19,6 @@ public class movement : MonoBehaviour {
     SpriteRenderer mySprite;
     Animator myAnimator;
 
-    //private bool isJumping = false;
     private bool isPaused = false;
     private bool noHealth = false;
 
@@ -62,23 +62,6 @@ public class movement : MonoBehaviour {
             myRigidbody.velocity = new Vector2(xSpeed, myRigidbody.velocity.y);
         }
 
-        //JUMPING AND DUCKING
-        /*if (Input.GetKey(KeyCode.UpArrow) && isJumping != true)
-        {
-            myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, ySpeed);
-            isJumping = true;
-        }
-        if (Input.GetKey(KeyCode.DownArrow) && isJumping != true)
-        {
-            myCollider.size = new Vector3(19.39f, 5.5f, 7.261f);
-            myCollider.center = new Vector3(0f, -4, 0f);
-        }
-        else if (Input.anyKey)
-        {
-            myCollider.size = new Vector3(19.39f, 11.01937f, 7.261f);
-            myCollider.center = new Vector3(0, -2.544112f, 0);
-        }*/
-
         //ATTACK
         attackCooldown -= Time.deltaTime;
         if (attackCooldown <= 0)
@@ -115,9 +98,9 @@ public class movement : MonoBehaviour {
         }
 
         //TELEPORT
-        floor1Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-        floor2Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-        floor3Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        floor1Background.transform.position = new Vector3(.1f, -13f, 8.15f);
+        floor2Background.transform.position = new Vector3(.1f, -13f, 8.15f);
+        floor3Background.transform.position = new Vector3(.1f, -13f, 8.15f);
 
         if (floorNumber == 1)
         {
@@ -126,9 +109,7 @@ public class movement : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, 1f, 2.6f);
                 floorNumber = 2;
             }
-            floor1Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            
-
+            floor1Background.transform.position = new Vector3(.1f, 4.1f, 8.15f);
         }
         else if (floorNumber == 2)
         {
@@ -142,7 +123,7 @@ public class movement : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, -1f, 0f);
                 floorNumber = 1;
             }
-            floor2Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            floor2Background.transform.position = new Vector3(.1f, 4.1f, 8.15f);
         }
         else if (floorNumber == 3)
         {
@@ -151,7 +132,7 @@ public class movement : MonoBehaviour {
                 transform.position = new Vector3(transform.position.x, 1f, 2.6f);
                 floorNumber = 2;
             }
-            floor3Background.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            floor3Background.transform.position = new Vector3(.1f, 4.1f, 8.15f);
         }
 
         //PAUSE
@@ -168,16 +149,15 @@ public class movement : MonoBehaviour {
             restart.color = new Color(1, 1, 1, 0);
             mainMenu.color = new Color(1, 1, 1, 0);
             Time.timeScale = 1;
+ 
         }
         if (Input.GetKeyDown(KeyCode.P) && isPaused != true)
         {
             isPaused = true;
-            Debug.Log("PAUSED");
         }
         else if (Input.GetKeyDown(KeyCode.P) && isPaused != false)
         {
             isPaused = false;
-            Debug.Log("PLAY");
         }
 
         if (Input.GetKey(KeyCode.E) && isPaused != false)
@@ -225,14 +205,6 @@ public class movement : MonoBehaviour {
             SceneManager.LoadScene("Win");
         }
     }
-
-    /*void OnCollisionEnter(Collision collisionInfo)
-    {
-        if (collisionInfo.gameObject.tag == "floor")
-        {
-            isJumping = false;
-        }
-    }*/
 
     void OnTriggerEnter(Collider collisionInfo)
     {
