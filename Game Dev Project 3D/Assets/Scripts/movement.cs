@@ -22,8 +22,14 @@ public class movement : MonoBehaviour {
     private bool isPaused = false;
     private bool noHealth = false;
 
-    public GameObject carrotSprite;
-    public GameObject cabbageSprite;
+    public GameObject carrotSketch;
+    public GameObject carrotLine;
+    public GameObject carrotColor;
+
+    public GameObject cabbageSketch;
+    public GameObject cabbageLine;
+    public GameObject cabbageColor;
+
     public GameObject floor1Background;
     public GameObject floor2Background;
     public GameObject floor3Background;
@@ -66,10 +72,22 @@ public class movement : MonoBehaviour {
         attackCooldown -= Time.deltaTime;
         if (attackCooldown <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && floorNumber == 1)
             {
-                GameObject newcarrotSpriteObj = Instantiate(carrotSprite);
-                newcarrotSpriteObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
+                GameObject newcarrotSketchObj = Instantiate(carrotSketch);
+                newcarrotSketchObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
+                attackCooldown = .5f;
+            }
+            else if (Input.GetKeyDown(KeyCode.Space) && floorNumber == 2)
+            {
+                GameObject newcarrotLineObj = Instantiate(carrotLine);
+                newcarrotLineObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
+                attackCooldown = .5f;
+            }
+            else if (Input.GetKeyDown(KeyCode.Space) && floorNumber == 3)
+            {
+                GameObject newcarrotColorObj = Instantiate(carrotColor);
+                newcarrotColorObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
                 attackCooldown = .5f;
             }
         }
@@ -84,10 +102,24 @@ public class movement : MonoBehaviour {
             chargeCounter -= Time.deltaTime;
             chargeBar.rectTransform.localScale -= new Vector3(.0133f, 0, 0);
         }
-        if (chargeCounter >= 3)
+        if (chargeCounter >= 3 && floorNumber == 1)
         {
-            GameObject newcabbageSpriteObj = Instantiate(cabbageSprite);
-            newcabbageSpriteObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z - 1f);
+            GameObject newcabbageSketchObj = Instantiate(cabbageSketch);
+            newcabbageSketchObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y + 1f, transform.position.z - 1f);
+            chargeCounter = 0;
+            chargeBar.rectTransform.localScale = new Vector3(0, 0.3839271f, 2.249413f);
+        }
+        else if (chargeCounter >= 3 && floorNumber == 2)
+        {
+            GameObject newcabbageLineObj = Instantiate(cabbageLine);
+            newcabbageLineObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y + 1f, transform.position.z - 1f);
+            chargeCounter = 0;
+            chargeBar.rectTransform.localScale = new Vector3(0, 0.3839271f, 2.249413f);
+        }
+        else if (chargeCounter >= 3 && floorNumber == 3)
+        {
+            GameObject newcabbageColorObj = Instantiate(cabbageColor);
+            newcabbageColorObj.transform.position = new Vector3(transform.position.x + 2f, transform.position.y + 1f, transform.position.z - 1f);
             chargeCounter = 0;
             chargeBar.rectTransform.localScale = new Vector3(0, 0.3839271f, 2.249413f);
         }
