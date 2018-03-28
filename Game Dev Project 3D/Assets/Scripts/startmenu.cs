@@ -20,7 +20,7 @@ public class startmenu : MonoBehaviour {
         {
             Application.Quit();
         }
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             SceneManager.LoadScene("Instructions");
         }

@@ -16,6 +16,7 @@ public class boss2 : MonoBehaviour {
     public int health = 50;
 
     SpriteRenderer mySpriteRenderer;
+    Animator myAnimator;
 
     float pelletTimer = 1f;
     float waveTimer = 3f;
@@ -29,6 +30,8 @@ public class boss2 : MonoBehaviour {
     void Start ()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myAnimator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -53,6 +56,8 @@ public class boss2 : MonoBehaviour {
                 newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(0f, 2.5f), 2.6f);
                 pelletTimer = 1f;
             }
+            myAnimator.Play("Boss 2 Attack");
+
         }
         if (attackCounter1 == 2)
         {
@@ -62,6 +67,8 @@ public class boss2 : MonoBehaviour {
                 newbossAttack.transform.position = new Vector3(transform.position.x, .49f, 2.6f);
                 waveTimer = 3f;
             }
+            myAnimator.Play("Boss 2 Attack");
+
         }
         if (attackCounter1 == 3)
         {
@@ -71,6 +78,8 @@ public class boss2 : MonoBehaviour {
                 newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, 1.8f);
                 columnTimer = 2f;
             }
+            myAnimator.Play("Boss 2 Attack");
+
         }
         if (attackCounter1 == 4)
         {
@@ -78,6 +87,8 @@ public class boss2 : MonoBehaviour {
             {
                 idleTimer = 3f;
             }
+            myAnimator.Play("Boss 2 Idle");
+
         }
 
 

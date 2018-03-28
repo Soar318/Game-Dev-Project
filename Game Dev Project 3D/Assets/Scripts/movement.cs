@@ -142,6 +142,7 @@ public class movement : MonoBehaviour {
                 floorNumber = 2;
             }
             floor1Background.transform.position = new Vector3(.1f, 4.1f, 8.15f);
+            myAnimator.Play("Player Run Sketch");
         }
         else if (floorNumber == 2)
         {
@@ -156,6 +157,7 @@ public class movement : MonoBehaviour {
                 floorNumber = 1;
             }
             floor2Background.transform.position = new Vector3(.1f, 4.1f, 8.15f);
+            myAnimator.Play("Player Run Line");
         }
         else if (floorNumber == 3)
         {

@@ -120,6 +120,7 @@ public class boss : MonoBehaviour
             health -= 1;
             healthBar.rectTransform.localScale -= new Vector3(.06f, 0, 0);
         }
+
         if (collisionInfo.gameObject.tag == "charge attack")
         {
             mySpriteRenderer.color = new Color(1, 0, 0);
@@ -127,7 +128,6 @@ public class boss : MonoBehaviour
             healthBar.rectTransform.localScale -= new Vector3(.3f, 0, 0);
         }
     }
-
 
     void OnTriggerExit(Collider other)
     {

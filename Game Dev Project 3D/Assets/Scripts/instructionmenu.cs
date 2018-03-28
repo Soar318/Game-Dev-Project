@@ -12,9 +12,9 @@ public class instructionmenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey(KeyCode.Escape))
+		if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene("Start Menu");
+            SceneManager.LoadScene("Game");
         }
 	}
 }
