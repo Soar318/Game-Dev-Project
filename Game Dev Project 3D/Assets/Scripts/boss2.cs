@@ -14,6 +14,7 @@ public class boss2 : MonoBehaviour {
     public Image healthBar;
 
     public int health = 50;
+    public int attackCounter1;
 
     SpriteRenderer mySpriteRenderer;
     Animator myAnimator;
@@ -24,18 +25,18 @@ public class boss2 : MonoBehaviour {
     float idleTimer = 3f;
     public float attackCounterTimer1 = 5f;
 
-    public int attackCounter1;
+    private bool isHurt = false;
 
     // Use this for initialization
     void Start ()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
-
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
         pelletTimer -= Time.deltaTime;
         waveTimer -= Time.deltaTime;
         columnTimer -= Time.deltaTime;
@@ -97,40 +98,45 @@ public class boss2 : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        if (rabbit.GetComponent<movement>().floorNumber == 2)
-        {
-            mySpriteRenderer.color = new Color(1, 1, 1, 1);
-            hairball.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            rat.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            paw.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-        }
-        else if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 3)
+        if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 3)
         {
             mySpriteRenderer.color = new Color(1, 1, 1, .3f);
             hairball.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
             rat.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
             paw.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
         }
+        else if (rabbit.GetComponent<movement>().floorNumber == 2)
+        {
+            mySpriteRenderer.color = new Color(1, 1, 1, 1);
+            hairball.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            rat.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            paw.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
+
+        if (isHurt == true)
+        {
+            mySpriteRenderer.color = new Color(1, 0, 0);
+        }
     }
     void OnTriggerEnter(Collider collisionInfo)
     {
         if (collisionInfo.gameObject.tag == "player attack")
         {
-            mySpriteRenderer.color = new Color(1, 0, 0);
+            isHurt = true;
             health -= 1;
             healthBar.rectTransform.localScale -= new Vector3(.06f, 0, 0);
         }
         if (collisionInfo.gameObject.tag == "charge attack")
         {
-            mySpriteRenderer.color = new Color(1, 0, 0);
+            isHurt = true;
             health -= 5;
             healthBar.rectTransform.localScale -= new Vector3(.3f, 0, 0);
         }
     }
 
-
     void OnTriggerExit(Collider other)
     {
         mySpriteRenderer.color = new Color(1, 1, 1);
+        isHurt = false;
     }
 }

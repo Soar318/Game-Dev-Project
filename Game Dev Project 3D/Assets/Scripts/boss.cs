@@ -14,6 +14,7 @@ public class boss : MonoBehaviour
     public Image healthBar;
 
     public int health = 50;
+    public int attackCounter1;
 
     SpriteRenderer mySpriteRenderer;
     Animator myAnimator;
@@ -24,7 +25,7 @@ public class boss : MonoBehaviour
     float idleTimer = 3f;
     public float attackCounterTimer1 = 5f;
 
-    public int attackCounter1;
+    private bool isHurt = false;
 
     // Use this for initialization
     void Start()
@@ -47,7 +48,7 @@ public class boss : MonoBehaviour
             attackCounter1 = Random.Range(1, 4);
             attackCounterTimer1 = 5f;
         }
-        
+
         if (attackCounter1 == 1)
         {
             if (pelletTimer <= 0)
@@ -96,19 +97,24 @@ public class boss : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (rabbit.GetComponent<movement>().floorNumber == 1)
+        if (rabbit.GetComponent<movement>().floorNumber == 2 || rabbit.GetComponent<movement>().floorNumber == 3)
+        {
+            mySpriteRenderer.color = new Color(1, 1, 1, .3f);
+            eye.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            heart.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            bone.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+        }
+        else if (rabbit.GetComponent<movement>().floorNumber == 1)
         {
             mySpriteRenderer.color = new Color(1, 1, 1, 1);
             eye.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             heart.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             bone.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
-        else if (rabbit.GetComponent<movement>().floorNumber == 2 || rabbit.GetComponent<movement>().floorNumber == 3)
+
+        if (isHurt == true)
         {
-            mySpriteRenderer.color = new Color(1, 1, 1, .3f);
-            eye.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-            heart.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-            bone.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
+            mySpriteRenderer.color = new Color(1, 0, 0);
         }
     }
 
@@ -116,14 +122,14 @@ public class boss : MonoBehaviour
     {
         if (collisionInfo.gameObject.tag == "player attack")
         {
-            mySpriteRenderer.color = new Color(1, 0, 0);
+            isHurt = true;  
             health -= 1;
             healthBar.rectTransform.localScale -= new Vector3(.06f, 0, 0);
         }
 
         if (collisionInfo.gameObject.tag == "charge attack")
         {
-            mySpriteRenderer.color = new Color(1, 0, 0);
+            isHurt = true;
             health -= 5;
             healthBar.rectTransform.localScale -= new Vector3(.3f, 0, 0);
         }
@@ -132,5 +138,6 @@ public class boss : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         mySpriteRenderer.color = new Color(1, 1, 1);
+        isHurt = false;
     }
 }
