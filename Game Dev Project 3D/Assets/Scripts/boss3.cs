@@ -92,16 +92,10 @@ public class boss3 : MonoBehaviour {
         if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 2)
         {
             mySpriteRenderer.color = new Color(1, 1, 1, .3f);
-            feather.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-            egg.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-            stick.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
         }
         else if (rabbit.GetComponent<movement>().floorNumber == 3)
         {
             mySpriteRenderer.color = new Color(1, 1, 1, 1);
-            feather.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            egg.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            stick.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
 
         if (isHurt == true)

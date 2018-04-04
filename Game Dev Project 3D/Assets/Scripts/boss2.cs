@@ -101,16 +101,10 @@ public class boss2 : MonoBehaviour {
         if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 3)
         {
             mySpriteRenderer.color = new Color(1, 1, 1, .3f);
-            hairball.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-            rat.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-            paw.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
         }
         else if (rabbit.GetComponent<movement>().floorNumber == 2)
         {
             mySpriteRenderer.color = new Color(1, 1, 1, 1);
-            hairball.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            rat.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            paw.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
 
         if (isHurt == true)

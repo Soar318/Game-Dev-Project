@@ -242,7 +242,7 @@ public class movement : MonoBehaviour {
 
     void OnTriggerEnter(Collider collisionInfo)
     {
-        if (collisionInfo.gameObject.tag == "boss attack")
+        if (collisionInfo.gameObject.tag == "boss attack" || collisionInfo.gameObject.tag == "sketch boss")
         {
             health -= 1;
             mySprite.color = new Color(1, 0, 0);

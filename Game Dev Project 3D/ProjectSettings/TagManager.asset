@@ -8,6 +8,8 @@ TagManager:
   - player attack
   - boss attack
   - charge attack
+  - sketch boss
+  - sketch head
   layers:
   - Default
   - TransparentFX

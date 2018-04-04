@@ -100,16 +100,10 @@ public class boss : MonoBehaviour
         if (rabbit.GetComponent<movement>().floorNumber == 2 || rabbit.GetComponent<movement>().floorNumber == 3)
         {
             mySpriteRenderer.color = new Color(1, 1, 1, .3f);
-            eye.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-            heart.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
-            bone.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .3f);
         }
         else if (rabbit.GetComponent<movement>().floorNumber == 1)
         {
             mySpriteRenderer.color = new Color(1, 1, 1, 1);
-            eye.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            heart.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-            bone.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
 
         if (isHurt == true)
