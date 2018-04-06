@@ -261,8 +261,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 103750234}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -1.6025473, y: 4.692252, z: 9.234375}
-  m_LocalScale: {x: 3.7812362, y: 1.9462508, z: 1.6171639}
+  m_LocalPosition: {x: -1.6025, y: -0.6, z: 9.4002}
+  m_LocalScale: {x: 5.321823, y: 2.7392073, z: 2.2760413}
   m_Children: []
   m_Father: {fileID: 1614242322}
   m_RootOrder: 4
@@ -358,7 +358,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 171120160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7025473, y: 0.39225215, z: 7.884375}
+  m_LocalPosition: {x: -1.7025473, y: -2.36, z: 8.01}
   m_LocalScale: {x: 39.51963, y: 2.8711374, z: 1.0306776}
   m_Children: []
   m_Father: {fileID: 1614242322}
@@ -455,7 +455,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 198357130}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7025473, y: -1.3077478, z: 2.784375}
+  m_LocalPosition: {x: -1.7025473, y: -2.59, z: 1.76}
   m_LocalScale: {x: 30.60418, y: 2.8049557, z: 1.0306776}
   m_Children: []
   m_Father: {fileID: 1614242322}
@@ -646,7 +646,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 255558405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5525475, y: -0.6377479, z: 0.264375}
+  m_LocalPosition: {x: -7.5525475, y: -0.95, z: 0.81}
   m_LocalScale: {x: 0.122775845, y: 0.12277576, z: 0.12277576}
   m_Children: []
   m_Father: {fileID: 1784478754}
@@ -679,6 +679,9 @@ MonoBehaviour:
   floor1Background: {fileID: 2126459460}
   floor2Background: {fileID: 103750234}
   floor3Background: {fileID: 1102245871}
+  floorSketch: {fileID: 1941726793}
+  floorLine: {fileID: 198357130}
+  floorColor: {fileID: 171120160}
   boss1: {fileID: 575311057}
   boss2: {fileID: 871459685}
   boss3: {fileID: 2108159814}
@@ -1749,8 +1752,8 @@ Transform:
   m_Children:
   - {fileID: 1371875856}
   - {fileID: 1866849073}
-  - {fileID: 2108159817}
   - {fileID: 1566248937}
+  - {fileID: 2108159817}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2563,8 +2566,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1102245871}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -1.6025473, y: 4.692252, z: 8.834375}
-  m_LocalScale: {x: 3.7812362, y: 1.9462508, z: 1.6171639}
+  m_LocalPosition: {x: -1.6025, y: 0.9, z: 8.8441}
+  m_LocalScale: {x: 5.256669, y: 2.705672, z: 2.2481763}
   m_Children: []
   m_Father: {fileID: 1614242322}
   m_RootOrder: 5
@@ -2662,8 +2665,10 @@ GameObject:
   - component: {fileID: 1352395931}
   - component: {fileID: 1352395932}
   - component: {fileID: 1352395933}
+  - component: {fileID: 1352395935}
+  - component: {fileID: 1352395934}
   m_Layer: 11
-  m_Name: heart
+  m_Name: Heart Sketch
   m_TagString: boss attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2714,7 +2719,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c9a7fbd516841ea4a80a4292cd160d6a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3fcbc82a3edd2c6478a3fd2bb0ed4ed7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2844,6 +2849,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1352395934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1352395927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2367947deb811246b582686f0704aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbit: {fileID: 255558405}
+--- !u!95 &1352395935
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1352395927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 607a5b8e216ddf64c8a97b1239347b3d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1371875850
 GameObject:
   m_ObjectHideFlags: 0
@@ -2858,6 +2892,7 @@ GameObject:
   - component: {fileID: 1371875852}
   - component: {fileID: 1371875851}
   - component: {fileID: 1371875857}
+  - component: {fileID: 1371875858}
   m_Layer: 11
   m_Name: Eye Color
   m_TagString: boss attack
@@ -3057,6 +3092,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1371875858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1371875850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b07da655a2302469b90153b2375480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbit: {fileID: 255558405}
 --- !u!1 &1422491629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,6 +3118,7 @@ GameObject:
   - component: {fileID: 1422491635}
   - component: {fileID: 1422491634}
   - component: {fileID: 1422491636}
+  - component: {fileID: 1422491637}
   m_Layer: 11
   m_Name: Bone Sketch
   m_TagString: boss attack
@@ -3266,6 +3314,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1422491637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1422491629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2367947deb811246b582686f0704aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbit: {fileID: 255558405}
 --- !u!1 &1439740574
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,6 +3408,7 @@ GameObject:
   - component: {fileID: 1439745890}
   - component: {fileID: 1439745889}
   - component: {fileID: 1439745895}
+  - component: {fileID: 1439745896}
   m_Layer: 11
   m_Name: Eye Line
   m_TagString: boss attack
@@ -3547,6 +3608,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1439745896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1439745888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818363ad7569b7641815b29d06f14e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbit: {fileID: 255558405}
 --- !u!1 &1543715854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3756,6 +3829,7 @@ GameObject:
   - component: {fileID: 1566248933}
   - component: {fileID: 1566248932}
   - component: {fileID: 1566248938}
+  - component: {fileID: 1566248939}
   m_Layer: 11
   m_Name: Bone Color
   m_TagString: boss attack
@@ -3869,7 +3943,7 @@ Transform:
   m_LocalScale: {x: 3.46272, y: 2.97868, z: 2.97868}
   m_Children: []
   m_Father: {fileID: 803299209}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1566248938
 AudioSource:
@@ -3951,6 +4025,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1566248939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1566248931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b07da655a2302469b90153b2375480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbit: {fileID: 255558405}
 --- !u!1 &1613663602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4129,6 +4215,7 @@ GameObject:
   - component: {fileID: 1691078444}
   - component: {fileID: 1691078443}
   - component: {fileID: 1691078448}
+  - component: {fileID: 1691078449}
   m_Layer: 11
   m_Name: Bone Line
   m_TagString: boss attack
@@ -4324,6 +4411,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1691078449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691078441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818363ad7569b7641815b29d06f14e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbit: {fileID: 255558405}
 --- !u!1 &1745293844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,6 +4437,7 @@ GameObject:
   - component: {fileID: 1745293847}
   - component: {fileID: 1745293850}
   - component: {fileID: 1745293851}
+  - component: {fileID: 1745293852}
   m_Layer: 11
   m_Name: Eye Sketch
   m_TagString: boss attack
@@ -4537,6 +4637,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1745293852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1745293844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2367947deb811246b582686f0704aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbit: {fileID: 255558405}
 --- !u!1 &1777318316
 GameObject:
   m_ObjectHideFlags: 0
@@ -4853,6 +4965,7 @@ GameObject:
   - component: {fileID: 1866849071}
   - component: {fileID: 1866849070}
   - component: {fileID: 1866849074}
+  - component: {fileID: 1866849075}
   m_Layer: 13
   m_Name: egg
   m_TagString: boss attack
@@ -4955,6 +5068,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39a46bd18e7202c4e85824ed36d6aabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1866849075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1866849069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b07da655a2302469b90153b2375480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbit: {fileID: 255558405}
 --- !u!1 &1910468823
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,6 +5166,7 @@ GameObject:
   - component: {fileID: 1930624155}
   - component: {fileID: 1930624154}
   - component: {fileID: 1930624153}
+  - component: {fileID: 1930624156}
   m_Layer: 12
   m_Name: rat
   m_TagString: boss attack
@@ -5143,6 +5269,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1930624156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1930624150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818363ad7569b7641815b29d06f14e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rabbit: {fileID: 255558405}
 --- !u!1 &1941726793
 GameObject:
   m_ObjectHideFlags: 0
@@ -5222,8 +5360,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1941726793}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7025473, y: -3.0077477, z: 0.234375}
-  m_LocalScale: {x: 22.275518, y: 2.4378169, z: 1.0306776}
+  m_LocalPosition: {x: -2.1, y: -3.22, z: 0.86}
+  m_LocalScale: {x: 25.059956, y: 2.6511264, z: 1.0306776}
   m_Children: []
   m_Father: {fileID: 1614242322}
   m_RootOrder: 0
@@ -5836,7 +5974,7 @@ Transform:
   m_LocalScale: {x: 3.165301, y: 3.1653004, z: 3.1653004}
   m_Children: []
   m_Father: {fileID: 803299209}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &2108159818
 MonoBehaviour:
@@ -5950,8 +6088,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2126459460}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: -1.6025473, y: 4.692252, z: 8.384375}
-  m_LocalScale: {x: 3.7812362, y: 1.9462508, z: 1.6171639}
+  m_LocalPosition: {x: -1.6025, y: 0.9, z: 8.2185}
+  m_LocalScale: {x: 5.256669, y: 2.705672, z: 2.2481763}
   m_Children: []
   m_Father: {fileID: 1614242322}
   m_RootOrder: 3

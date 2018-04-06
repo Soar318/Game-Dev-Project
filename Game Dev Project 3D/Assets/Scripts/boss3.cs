@@ -19,22 +19,23 @@ public class boss3 : MonoBehaviour {
     SpriteRenderer mySpriteRenderer;
     Animator myAnimator;
 
-    float pelletTimer = 1f;
-    float waveTimer = 3f;
-    float columnTimer = 2f;
+    float pelletTimer = 1.5f;
+    float waveTimer = 2f;
+    float columnTimer = 4f;
     float idleTimer = 3f;
     public float attackCounterTimer1 = 5f;
 
     private bool isHurt = false;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         pelletTimer -= Time.deltaTime;
         waveTimer -= Time.deltaTime;
@@ -53,8 +54,8 @@ public class boss3 : MonoBehaviour {
             if (pelletTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(feather);
-                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(2.2f, 4f), 7.6f);
-                pelletTimer = 1f;
+                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(1f, 3f), .03f);
+                pelletTimer = 1.5f;
             }
         }
         if (attackCounter1 == 2)
@@ -62,8 +63,8 @@ public class boss3 : MonoBehaviour {
             if (waveTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(egg);
-                newbossAttack.transform.position = new Vector3(transform.position.x, 3.2f, 7.6f);
-                waveTimer = 3f;
+                newbossAttack.transform.position = new Vector3(transform.position.x, 1f, .03f);
+                waveTimer = 2f;
             }
         }
         if (attackCounter1 == 3)
@@ -71,8 +72,8 @@ public class boss3 : MonoBehaviour {
             if (columnTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(stick);
-                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, 6f);
-                columnTimer = 2f;
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, -1.12f);
+                columnTimer = 4f;
             }
         }
         if (attackCounter1 == 4)
@@ -91,7 +92,7 @@ public class boss3 : MonoBehaviour {
 
         if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 2)
         {
-            mySpriteRenderer.color = new Color(1, 1, 1, .3f);
+            mySpriteRenderer.color = new Color(1, 1, 1, 0);
         }
         else if (rabbit.GetComponent<movement>().floorNumber == 3)
         {
@@ -105,13 +106,13 @@ public class boss3 : MonoBehaviour {
     }
     void OnTriggerEnter(Collider collisionInfo)
     {
-        if (collisionInfo.gameObject.tag == "player attack")
+        if (collisionInfo.gameObject.tag == "player attack" && rabbit.GetComponent<movement>().floorNumber == 3)
         {
             isHurt = true;
             health -= 1;
             healthBar.rectTransform.localScale -= new Vector3(.06f, 0, 0);
         }
-        if (collisionInfo.gameObject.tag == "charge attack")
+        if (collisionInfo.gameObject.tag == "charge attack" && rabbit.GetComponent<movement>().floorNumber == 3)
         {
             isHurt = true;
             health -= 5;

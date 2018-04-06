@@ -33,6 +33,9 @@ public class movement : MonoBehaviour {
     public GameObject floor1Background;
     public GameObject floor2Background;
     public GameObject floor3Background;
+    public GameObject floorSketch;
+    public GameObject floorLine;
+    public GameObject floorColor;
     public GameObject boss1;
     public GameObject boss2;
     public GameObject boss3;
@@ -48,7 +51,8 @@ public class movement : MonoBehaviour {
     public Image chargeBar;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         myRigidbody = GetComponent<Rigidbody>();
         myCollider = GetComponent<BoxCollider>();
         mySprite = GetComponent<SpriteRenderer>();
@@ -56,7 +60,8 @@ public class movement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
 
         //MOVEMENT
         if (Input.GetKey(KeyCode.A))
@@ -138,35 +143,40 @@ public class movement : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                transform.position = new Vector3(transform.position.x, 1f, 2.6f);
                 floorNumber = 2;
             }
-            floor1Background.transform.position = new Vector3(.1f, 4.1f, 8.15f);
+            floor1Background.transform.position = new Vector3(.1f, .73f, 8.15f);
+            floorSketch.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
+            floorLine.transform.position = new Vector3(-1.7025f, -2.59f, 1.76f);
+            floorColor.transform.position = new Vector3(-1.7025f, -2.36f, 8.01f);
             myAnimator.Play("Player Run Sketch");
         }
         else if (floorNumber == 2)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                transform.position = new Vector3(transform.position.x, 3f, 7.6f);
                 floorNumber = 3;
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
-                transform.position = new Vector3(transform.position.x, -1f, 0f);
                 floorNumber = 1;
             }
-            floor2Background.transform.position = new Vector3(.1f, 4.1f, 8.15f);
+            floor2Background.transform.position = new Vector3(.1f, .73f, 8.15f);
+            floorSketch.transform.position = new Vector3(-1.7025f, -3.68f, -1.33f);
+            floorLine.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
+            floorColor.transform.position = new Vector3(-1.7025f, -2.65f, 1.76f);
             myAnimator.Play("Player Run Line");
         }
         else if (floorNumber == 3)
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
-                transform.position = new Vector3(transform.position.x, 1f, 2.6f);
                 floorNumber = 2;
             }
-            floor3Background.transform.position = new Vector3(.1f, 4.1f, 8.15f);
+            floor3Background.transform.position = new Vector3(.1f, .73f, 8.15f);
+            floorSketch.transform.position = new Vector3(-1.7025f, -3.68f, -2.67f);
+            floorLine.transform.position = new Vector3(-1.7025f, -3.68f, -1f);
+            floorColor.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
         }
 
         //PAUSE
@@ -183,7 +193,7 @@ public class movement : MonoBehaviour {
             restart.color = new Color(1, 1, 1, 0);
             mainMenu.color = new Color(1, 1, 1, 0);
             Time.timeScale = 1;
- 
+
         }
         if (Input.GetKeyDown(KeyCode.P) && isPaused != true)
         {
@@ -242,7 +252,19 @@ public class movement : MonoBehaviour {
 
     void OnTriggerEnter(Collider collisionInfo)
     {
-        if (collisionInfo.gameObject.tag == "boss attack" || collisionInfo.gameObject.tag == "sketch boss")
+        if (collisionInfo.gameObject.tag == "sketch attack" && floorNumber == 1)
+        {
+            health -= 1;
+            mySprite.color = new Color(1, 0, 0);
+            healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
+        }
+        if (collisionInfo.gameObject.tag == "line attack" && floorNumber == 2)
+        {
+            health -= 1;
+            mySprite.color = new Color(1, 0, 0);
+            healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
+        }
+        if (collisionInfo.gameObject.tag == "color attack" && floorNumber == 3)
         {
             health -= 1;
             mySprite.color = new Color(1, 0, 0);

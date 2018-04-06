@@ -20,7 +20,7 @@ public class boss : MonoBehaviour
     Animator myAnimator;
 
     float pelletTimer = 1f;
-    float waveTimer = 3f;
+    float waveTimer = 4f;
     float columnTimer = 2f;
     float idleTimer = 3f;
     public float attackCounterTimer1 = 5f;
@@ -54,7 +54,7 @@ public class boss : MonoBehaviour
             if (pelletTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(eye);
-                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(-1f, 1f), .03f);
+                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(1f, 3f), .03f);
                 pelletTimer = 1f;
             }
 
@@ -65,8 +65,8 @@ public class boss : MonoBehaviour
             if (waveTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(heart);
-                newbossAttack.transform.position = new Vector3(transform.position.x, -1f, .03f);
-                waveTimer = 3f;
+                newbossAttack.transform.position = new Vector3(transform.position.x, 1f, .03f);
+                waveTimer = 4f;
             }
 
             myAnimator.Play("Boss 1 Attack");
@@ -99,7 +99,7 @@ public class boss : MonoBehaviour
 
         if (rabbit.GetComponent<movement>().floorNumber == 2 || rabbit.GetComponent<movement>().floorNumber == 3)
         {
-            mySpriteRenderer.color = new Color(1, 1, 1, .3f);
+            mySpriteRenderer.color = new Color(1, 1, 1, 0);
         }
         else if (rabbit.GetComponent<movement>().floorNumber == 1)
         {
@@ -114,14 +114,14 @@ public class boss : MonoBehaviour
 
     void OnTriggerEnter(Collider collisionInfo)
     {
-        if (collisionInfo.gameObject.tag == "player attack")
+        if (collisionInfo.gameObject.tag == "player attack" && rabbit.GetComponent<movement>().floorNumber == 1)
         {
-            isHurt = true;  
+            isHurt = true;
             health -= 1;
             healthBar.rectTransform.localScale -= new Vector3(.06f, 0, 0);
         }
 
-        if (collisionInfo.gameObject.tag == "charge attack")
+        if (collisionInfo.gameObject.tag == "charge attack" && rabbit.GetComponent<movement>().floorNumber == 1)
         {
             isHurt = true;
             health -= 5;
@@ -135,3 +135,4 @@ public class boss : MonoBehaviour
         isHurt = false;
     }
 }
+

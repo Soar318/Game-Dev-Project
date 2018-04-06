@@ -100,7 +100,7 @@ public class boss2 : MonoBehaviour {
 
         if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 3)
         {
-            mySpriteRenderer.color = new Color(1, 1, 1, .3f);
+            mySpriteRenderer.color = new Color(1, 1, 1, 0);
         }
         else if (rabbit.GetComponent<movement>().floorNumber == 2)
         {
