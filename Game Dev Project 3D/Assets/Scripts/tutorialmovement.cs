@@ -4,22 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class movement : MonoBehaviour {
+public class tutorialmovement : MonoBehaviour
+{
 
     public float speed = 0.05f;
     public float xSpeed = 13f;
     public float ySpeed = 17f;
     public int floorNumber = 1;
-    public int health = 5;
     public float chargeCounter = 0;
     public float attackCooldown = .5f;
+
+    float waveTimer = 4f;
 
     Rigidbody myRigidbody;
     SpriteRenderer mySprite;
     Animator myAnimator;
-
-    private bool isPaused = false;
-    private bool noHealth = false;
 
     public GameObject carrotSketch;
     public GameObject carrotLine;
@@ -29,24 +28,12 @@ public class movement : MonoBehaviour {
     public GameObject cabbageLine;
     public GameObject cabbageColor;
 
-    public GameObject floor1Background;
-    public GameObject floor2Background;
-    public GameObject floor3Background;
     public GameObject floorSketch;
     public GameObject floorLine;
     public GameObject floorColor;
-    public GameObject boss1;
-    public GameObject boss2;
-    public GameObject boss3;
 
-    public Text paused;
-    public Text restart;
-    public Text mainMenu;
-    public Text youLost;
-    public Text tryAgain;
-    public Text quit;
+    public GameObject heartSketch;
 
-    public Image healthBar;
     public Image chargeBar;
 
     // Use this for initialization
@@ -55,6 +42,7 @@ public class movement : MonoBehaviour {
         myRigidbody = GetComponent<Rigidbody>();
         mySprite = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -132,22 +120,26 @@ public class movement : MonoBehaviour {
             chargeBar.rectTransform.localScale = new Vector3(0, 0.3839271f, 2.249413f);
         }
 
-        //TELEPORT
-        floor1Background.transform.position = new Vector3(.1f, -13f, 8.15f);
-        floor2Background.transform.position = new Vector3(.1f, -13f, 8.15f);
-        floor3Background.transform.position = new Vector3(.1f, -13f, 8.15f);
+        waveTimer -= Time.deltaTime;
 
+        //TELEPORT
         if (floorNumber == 1)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
                 floorNumber = 2;
             }
-            floor1Background.transform.position = new Vector3(.1f, .73f, 8.15f);
-            floorSketch.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
-            floorLine.transform.position = new Vector3(-1.7025f, -2.59f, 1.76f);
-            floorColor.transform.position = new Vector3(-1.7025f, -2.36f, 8.01f);
+            floorSketch.transform.position = new Vector3(-.2179f, -2.02f, -3.0317f);
+            floorLine.transform.position = new Vector3(-0, -1.76f, -2.3229f);
+            floorColor.transform.position = new Vector3(0, -1.5016f, -1.5403f);
             myAnimator.Play("Player Run Sketch");
+
+            if (waveTimer <= 0)
+            {
+                GameObject newbossAttack = Instantiate(heartSketch);
+                newbossAttack.transform.position = new Vector3(10f, 0, -3.3f);
+                waveTimer = 4f;
+            }
         }
         else if (floorNumber == 2)
         {
@@ -159,10 +151,9 @@ public class movement : MonoBehaviour {
             {
                 floorNumber = 1;
             }
-            floor2Background.transform.position = new Vector3(.1f, .73f, 8.15f);
-            floorSketch.transform.position = new Vector3(-1.7025f, -3.68f, -1.33f);
-            floorLine.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
-            floorColor.transform.position = new Vector3(-1.7025f, -2.65f, 1.76f);
+            floorSketch.transform.position = new Vector3(-.2179f, -2.24f, -3.87f);
+            floorLine.transform.position = new Vector3(-.2179f, -2.02f, -3.0317f);
+            floorColor.transform.position = new Vector3(-0, -1.76f, -2.3229f);
             myAnimator.Play("Player Run Line");
         }
         else if (floorNumber == 3)
@@ -171,102 +162,26 @@ public class movement : MonoBehaviour {
             {
                 floorNumber = 2;
             }
-            floor3Background.transform.position = new Vector3(.1f, .73f, 8.15f);
-            floorSketch.transform.position = new Vector3(-1.7025f, -3.68f, -2.67f);
-            floorLine.transform.position = new Vector3(-1.7025f, -3.68f, -1f);
-            floorColor.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
-        }
-
-        //PAUSE
-        if (isPaused == true)
-        {
-            paused.color = new Color(1, 1, 1, 1);
-            restart.color = new Color(1, 1, 1, 1);
-            mainMenu.color = new Color(1, 1, 1, 1);
-            Time.timeScale = 0;
-        }
-        else if (isPaused == false)
-        {
-            paused.color = new Color(1, 1, 1, 0);
-            restart.color = new Color(1, 1, 1, 0);
-            mainMenu.color = new Color(1, 1, 1, 0);
-            Time.timeScale = 1;
-
-        }
-        if (Input.GetKeyDown(KeyCode.P) && isPaused != true)
-        {
-            isPaused = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.P) && isPaused != false)
-        {
-            isPaused = false;
-        }
-
-        if (Input.GetKey(KeyCode.E) && isPaused != false)
-        {
-            SceneManager.LoadScene("Game");
-            isPaused = false;
-        }
-        if (Input.GetKey(KeyCode.Escape) && isPaused != false)
-        {
-            SceneManager.LoadScene("Start Menu");
-            isPaused = false;
-        }
-
-        //YOU LOSE
-        if (health <= 0)
-        {
-            noHealth = true;
-        }
-        if (noHealth == true)
-        {
-            youLost.color = new Color(1, 1, 1, 1);
-            quit.color = new Color(1, 1, 1, 1);
-            tryAgain.color = new Color(1, 1, 1, 1);
-            Time.timeScale = 0;
-        }
-        else if (noHealth == false)
-        {
-            youLost.color = new Color(1, 1, 1, 0);
-            quit.color = new Color(1, 1, 1, 0);
-            tryAgain.color = new Color(1, 1, 1, 0);
-        }
-        if (Input.GetKey(KeyCode.E) && noHealth != false)
-        {
-            SceneManager.LoadScene("Game");
-            noHealth = false;
-        }
-        if (Input.GetKey(KeyCode.Escape) && noHealth != false)
-        {
-            SceneManager.LoadScene("Start Menu");
-            noHealth = false;
-        }
-
-        if (boss1 == null && boss2 == null && boss3 == null)
-        {
-            SceneManager.LoadScene("Win");
+            floorSketch.transform.position = new Vector3(-.2179f, -2.2f, -5.64f);
+            floorLine.transform.position = new Vector3(-.2179f, -2.24f, -4.37f);
+            floorColor.transform.position = new Vector3(-.2179f, -2.24f, -3.0317f);
         }
     }
+
 
     void OnTriggerEnter(Collider collisionInfo)
     {
         if (collisionInfo.gameObject.tag == "sketch attack" && floorNumber == 1)
         {
-            health -= 1;
             mySprite.color = new Color(1, 0, 0);
-            healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
         }
         if (collisionInfo.gameObject.tag == "line attack" && floorNumber == 2)
         {
-            health -= 1;
             mySprite.color = new Color(1, 0, 0);
-            healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
         }
         if (collisionInfo.gameObject.tag == "color attack" && floorNumber == 3)
         {
-            health -= 1;
             mySprite.color = new Color(1, 0, 0);
-            healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
         }
     }
 
@@ -274,5 +189,4 @@ public class movement : MonoBehaviour {
     {
         mySprite.color = new Color(1, 1, 1);
     }
-
 }
