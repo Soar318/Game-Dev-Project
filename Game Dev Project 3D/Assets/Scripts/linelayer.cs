@@ -18,11 +18,11 @@ public class linelayer : MonoBehaviour {
     {
         if (rabbit.GetComponent<movement>().floorNumber == 1)
         {
-            mySpriteRenderer.color = new Color(0, 0, 0, .3f);
+            mySpriteRenderer.color = new Color(0, 0, 0, .7f);
         }
         else if (rabbit.GetComponent<movement>().floorNumber == 3)
         {
-            mySpriteRenderer.color = new Color(0, 0, 0, .3f);
+            mySpriteRenderer.color = new Color(0, 0, 0, .7f);
         }
         else if (rabbit.GetComponent<movement>().floorNumber == 2)
         {

@@ -114,13 +114,13 @@ public class boss2 : MonoBehaviour {
     }
     void OnTriggerEnter(Collider collisionInfo)
     {
-        if (collisionInfo.gameObject.tag == "player attack")
+        if (collisionInfo.gameObject.tag == "player attack" && rabbit.GetComponent<movement>().floorNumber == 2)
         {
             isHurt = true;
             health -= 1;
             healthBar.rectTransform.localScale -= new Vector3(.06f, 0, 0);
         }
-        if (collisionInfo.gameObject.tag == "charge attack")
+        if (collisionInfo.gameObject.tag == "charge attack" && rabbit.GetComponent<movement>().floorNumber == 2)
         {
             isHurt = true;
             health -= 5;
