@@ -32,8 +32,6 @@ public class tutorialmovement : MonoBehaviour
     public GameObject floorLine;
     public GameObject floorColor;
 
-    public GameObject heartSketch;
-
     public Image chargeBar;
 
     // Use this for initialization
@@ -133,13 +131,6 @@ public class tutorialmovement : MonoBehaviour
             floorLine.transform.position = new Vector3(-0, -1.76f, -2.3229f);
             floorColor.transform.position = new Vector3(0, -1.5016f, -1.5403f);
             myAnimator.Play("Player Run Sketch");
-
-            if (waveTimer <= 0)
-            {
-                GameObject newbossAttack = Instantiate(heartSketch);
-                newbossAttack.transform.position = new Vector3(10f, 0, -3.3f);
-                waveTimer = 4f;
-            }
         }
         else if (floorNumber == 2)
         {

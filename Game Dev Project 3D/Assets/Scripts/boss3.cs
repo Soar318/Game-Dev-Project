@@ -57,6 +57,7 @@ public class boss3 : MonoBehaviour {
                 newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(1f, 3f), .03f);
                 pelletTimer = 1.5f;
             }
+            myAnimator.Play("Boss 3 Attack");
         }
         if (attackCounter1 == 2)
         {
@@ -66,6 +67,7 @@ public class boss3 : MonoBehaviour {
                 newbossAttack.transform.position = new Vector3(transform.position.x, 1f, .03f);
                 waveTimer = 2f;
             }
+            myAnimator.Play("Boss 3 Attack");
         }
         if (attackCounter1 == 3)
         {
@@ -75,6 +77,7 @@ public class boss3 : MonoBehaviour {
                 newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, -1.12f);
                 columnTimer = 4f;
             }
+            myAnimator.Play("Boss 3 Attack");
         }
         if (attackCounter1 == 4)
         {
@@ -82,6 +85,7 @@ public class boss3 : MonoBehaviour {
             {
                 idleTimer = 3f;
             }
+            myAnimator.Play("Boss 3 Idle");
         }
 
 
