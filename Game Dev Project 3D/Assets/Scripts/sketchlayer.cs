@@ -18,15 +18,15 @@ public class sketchlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rabbit.GetComponent<tutorialmovement>().floorNumber == 2)
+        if (rabbit.GetComponent<movement>().floorNumber == 2)
         {
             mySpriteRenderer.color = new Color(0, 0, 0, .7f);
         }
-        else if (rabbit.GetComponent<tutorialmovement>().floorNumber == 3)
+        else if (rabbit.GetComponent<movement>().floorNumber == 3)
         {
             mySpriteRenderer.color = new Color(0, 0, 0, .3f);
         }
-        else if (rabbit.GetComponent<tutorialmovement>().floorNumber == 1)
+        else if (rabbit.GetComponent<movement>().floorNumber == 1)
         {
             mySpriteRenderer.color = new Color(1, 1, 1, 1);
         }

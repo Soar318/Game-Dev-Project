@@ -14,15 +14,11 @@ public class startmenu : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Instructions");
         }
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            SceneManager.LoadScene("Instructions");
         }
     }
 }
