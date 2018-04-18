@@ -145,8 +145,8 @@ public class movement : MonoBehaviour {
             }
             floor1Background.transform.position = new Vector3(.1f, .73f, 8.15f);
             floorSketch.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
-            floorLine.transform.position = new Vector3(-1.7025f, -2.59f, 1.76f);
-            floorColor.transform.position = new Vector3(-1.7025f, -2.36f, 8.01f);
+            floorLine.transform.position = new Vector3(-1.7025f, -3.22f, 3.3f);
+            floorColor.transform.position = new Vector3(-1.7025f, -3.22f, 6f);
             myAnimator.Play("Player Run Sketch");
         }
         else if (floorNumber == 2)
@@ -160,9 +160,9 @@ public class movement : MonoBehaviour {
                 floorNumber = 1;
             }
             floor2Background.transform.position = new Vector3(.1f, .73f, 8.15f);
-            floorSketch.transform.position = new Vector3(-1.7025f, -3.68f, -1.33f);
+            floorSketch.transform.position = new Vector3(-1.7025f, -3.22f, -1.33f);
             floorLine.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
-            floorColor.transform.position = new Vector3(-1.7025f, -2.65f, 1.76f);
+            floorColor.transform.position = new Vector3(-1.7025f, -3.22f, 3.61f);
             myAnimator.Play("Player Run Line");
         }
         else if (floorNumber == 3)
@@ -172,8 +172,8 @@ public class movement : MonoBehaviour {
                 floorNumber = 2;
             }
             floor3Background.transform.position = new Vector3(.1f, .73f, 8.15f);
-            floorSketch.transform.position = new Vector3(-1.7025f, -3.68f, -2.67f);
-            floorLine.transform.position = new Vector3(-1.7025f, -3.68f, -1f);
+            floorSketch.transform.position = new Vector3(-1.7025f, -3.22f, -2.67f);
+            floorLine.transform.position = new Vector3(-1.7025f, -3.22f, -1f);
             floorColor.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
         }
 

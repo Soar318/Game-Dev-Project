@@ -136,7 +136,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 31404002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 470.00003, y: 248, z: 0}
+  m_LocalPosition: {x: 20, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.84967, z: 2.2494066}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -895,7 +895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &334358964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,8 +960,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 334358963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 212, y: 119.5, z: 0}
-  m_LocalScale: {x: 0.42399997, y: 0.42399997, z: 0.42399997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 477257535}
   - {fileID: 1910468824}
@@ -1013,7 +1013,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 370954953}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -169.99997, y: 248, z: 0}
+  m_LocalPosition: {x: -620, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.84965944, z: 2.249413}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -1296,6 +1296,7 @@ MonoBehaviour:
   heart: {fileID: 1352395927}
   bone: {fileID: 1422491629}
   rabbit: {fileID: 255558405}
+  floorSketch: {fileID: 1941726793}
   healthBar: {fileID: 370954955}
   health: 50
   attackCounter1: 4
@@ -1548,7 +1549,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 719259929}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 320.00003, y: 248, z: 0}
+  m_LocalPosition: {x: -130, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.8496502, z: 2.2494066}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -1616,7 +1617,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800353104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -273.00003, y: -207, z: 0}
+  m_LocalPosition: {x: 177, y: -207, z: 0}
   m_LocalScale: {x: 2.271617, y: 0.3839262, z: 2.2494142}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -1781,7 +1782,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 826413822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1000061, y: 248, z: 0}
+  m_LocalPosition: {x: -449.90002, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.84963447, z: 2.2494116}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -1928,6 +1929,7 @@ MonoBehaviour:
   rat: {fileID: 1686150932}
   paw: {fileID: 1691078441}
   rabbit: {fileID: 255558405}
+  floorLine: {fileID: 198357130}
   healthBar: {fileID: 1439740576}
   health: 50
   attackCounter1: 4
@@ -2036,7 +2038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &938674018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2681,7 +2683,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1131958657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -362.60004, y: -207, z: 0}
+  m_LocalPosition: {x: 87.399994, y: -207, z: 0}
   m_LocalScale: {x: 0, y: 0.38392714, z: 2.249413}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -2742,7 +2744,7 @@ GameObject:
   - component: {fileID: 1352395934}
   m_Layer: 11
   m_Name: Heart Sketch
-  m_TagString: boss attack
+  m_TagString: sketch attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2934,6 +2936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbit: {fileID: 255558405}
+  floorSketch: {fileID: 1941726793}
 --- !u!95 &1352395935
 Animator:
   serializedVersion: 3
@@ -2968,7 +2971,7 @@ GameObject:
   - component: {fileID: 1371875858}
   m_Layer: 11
   m_Name: Eye Color
-  m_TagString: boss attack
+  m_TagString: color attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3177,6 +3180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbit: {fileID: 255558405}
+  floorColor: {fileID: 171120160}
 --- !u!1 &1422491629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,7 +3198,7 @@ GameObject:
   - component: {fileID: 1422491637}
   m_Layer: 11
   m_Name: Bone Sketch
-  m_TagString: boss attack
+  m_TagString: sketch attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3399,6 +3403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbit: {fileID: 255558405}
+  floorSketch: {fileID: 1941726793}
 --- !u!1 &1439740574
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,7 +3428,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1439740574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 150.1, y: 248, z: 0}
+  m_LocalPosition: {x: -299.90002, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.8496728, z: 2.2494116}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -3484,7 +3489,7 @@ GameObject:
   - component: {fileID: 1439745896}
   m_Layer: 11
   m_Name: Eye Line
-  m_TagString: boss attack
+  m_TagString: line attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3693,6 +3698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbit: {fileID: 255558405}
+  floorLine: {fileID: 198357130}
 --- !u!1 &1543715854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3905,7 +3911,7 @@ GameObject:
   - component: {fileID: 1566248939}
   m_Layer: 11
   m_Name: Bone Color
-  m_TagString: boss attack
+  m_TagString: color attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4110,6 +4116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbit: {fileID: 255558405}
+  floorColor: {fileID: 171120160}
 --- !u!1 &1613663602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4230,7 +4237,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1619594477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -277.90002, y: -255, z: 0}
+  m_LocalPosition: {x: 172.1, y: -255, z: 0}
   m_LocalScale: {x: 3.179332, y: 0.38392714, z: 2.249413}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -4291,7 +4298,7 @@ GameObject:
   - component: {fileID: 1686150935}
   m_Layer: 11
   m_Name: Heart Line
-  m_TagString: boss attack
+  m_TagString: line attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4321,6 +4328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbit: {fileID: 255558405}
+  floorLine: {fileID: 198357130}
 --- !u!95 &1686150935
 Animator:
   serializedVersion: 3
@@ -4517,7 +4525,7 @@ GameObject:
   - component: {fileID: 1691078449}
   m_Layer: 11
   m_Name: Bone Line
-  m_TagString: boss attack
+  m_TagString: line attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4722,6 +4730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbit: {fileID: 255558405}
+  floorLine: {fileID: 198357130}
 --- !u!1 &1745293844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4739,7 +4748,7 @@ GameObject:
   - component: {fileID: 1745293852}
   m_Layer: 11
   m_Name: Eye Sketch
-  m_TagString: boss attack
+  m_TagString: sketch attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4948,6 +4957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbit: {fileID: 255558405}
+  floorSketch: {fileID: 1941726793}
 --- !u!1 &1777318316
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,9 +5275,10 @@ GameObject:
   - component: {fileID: 1866849070}
   - component: {fileID: 1866849074}
   - component: {fileID: 1866849075}
+  - component: {fileID: 1866849076}
   m_Layer: 13
-  m_Name: egg
-  m_TagString: boss attack
+  m_Name: Heart Color
+  m_TagString: color attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5333,15 +5344,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4a2e3e80a7fd4643b438be39ef9e4ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10f95a3c4dc3d5b4cbaceb5f65ac04bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 6.45}
+  m_Size: {x: 6.52, y: 7.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &1866849073
 Transform:
@@ -5379,6 +5390,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbit: {fileID: 255558405}
+  floorColor: {fileID: 171120160}
+--- !u!95 &1866849076
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1866849069}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9cdd954991ae1aa418a39e9a4f2360a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1910468823
 GameObject:
   m_ObjectHideFlags: 0
@@ -5574,7 +5603,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1953562866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -319.99997, y: 248, z: 0}
+  m_LocalPosition: {x: -770, y: 248, z: 0}
   m_LocalScale: {x: 3, y: 0.8496482, z: 2.2494059}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -5943,7 +5972,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2025727959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -436.2689, y: -255, z: 0}
+  m_LocalPosition: {x: 13.73114, y: -255, z: 0}
   m_LocalScale: {x: 3.179332, y: 0.38392714, z: 2.249413}
   m_Children: []
   m_Father: {fileID: 334358967}
@@ -6164,6 +6193,7 @@ MonoBehaviour:
   egg: {fileID: 1866849069}
   stick: {fileID: 1566248931}
   rabbit: {fileID: 255558405}
+  floorColor: {fileID: 171120160}
   healthBar: {fileID: 31404004}
   health: 50
   attackCounter1: 4

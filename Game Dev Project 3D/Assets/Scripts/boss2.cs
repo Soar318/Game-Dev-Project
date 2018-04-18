@@ -10,6 +10,7 @@ public class boss2 : MonoBehaviour {
     public GameObject rat;
     public GameObject paw;
     public GameObject rabbit;
+    public GameObject floorLine;
 
     public Image healthBar;
 
@@ -54,7 +55,7 @@ public class boss2 : MonoBehaviour {
             if (pelletTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(hairball);
-                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(0f, 2.5f), 2.6f);
+                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(-1f, 1f), floorLine.transform.position.z);
                 pelletTimer = 1f;
             }
             myAnimator.Play("Boss 2 Attack");
@@ -65,7 +66,7 @@ public class boss2 : MonoBehaviour {
             if (waveTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(rat);
-                newbossAttack.transform.position = new Vector3(transform.position.x, .49f, 2.6f);
+                newbossAttack.transform.position = new Vector3(transform.position.x, -.43f, floorLine.transform.position.z);
                 waveTimer = 3f;
             }
             myAnimator.Play("Boss 2 Attack");
@@ -76,7 +77,7 @@ public class boss2 : MonoBehaviour {
             if (columnTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(paw);
-                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, 1.8f);
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, floorLine.transform.position.z - 1);
                 columnTimer = 2f;
             }
             myAnimator.Play("Boss 2 Attack");

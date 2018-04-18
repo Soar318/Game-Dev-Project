@@ -10,6 +10,7 @@ public class boss3 : MonoBehaviour {
     public GameObject egg;
     public GameObject stick;
     public GameObject rabbit;
+    public GameObject floorColor;
 
     public Image healthBar;
 
@@ -54,7 +55,7 @@ public class boss3 : MonoBehaviour {
             if (pelletTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(feather);
-                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(1f, 3f), .03f);
+                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(-1f, 1f), floorColor.transform.position.z);
                 pelletTimer = 1.5f;
             }
             myAnimator.Play("Boss 3 Attack");
@@ -64,7 +65,7 @@ public class boss3 : MonoBehaviour {
             if (waveTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(egg);
-                newbossAttack.transform.position = new Vector3(transform.position.x, 1f, .03f);
+                newbossAttack.transform.position = new Vector3(transform.position.x, -.43f, floorColor.transform.position.z);
                 waveTimer = 2f;
             }
             myAnimator.Play("Boss 3 Attack");
@@ -74,7 +75,7 @@ public class boss3 : MonoBehaviour {
             if (columnTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(stick);
-                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, -1.12f);
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, floorColor.transform.position.z - 1);
                 columnTimer = 4f;
             }
             myAnimator.Play("Boss 3 Attack");

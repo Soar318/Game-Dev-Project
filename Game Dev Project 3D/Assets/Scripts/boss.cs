@@ -10,6 +10,7 @@ public class boss : MonoBehaviour
     public GameObject heart;
     public GameObject bone;
     public GameObject rabbit;
+    public GameObject floorSketch;
 
     public Image healthBar;
 
@@ -54,7 +55,7 @@ public class boss : MonoBehaviour
             if (pelletTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(eye);
-                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(1f, 3f), .03f);
+                newbossAttack.transform.position = new Vector3(Random.Range(6f, 7f), Random.Range(-1f, 1f), floorSketch.transform.position.z);
                 pelletTimer = 1f;
             }
 
@@ -65,7 +66,7 @@ public class boss : MonoBehaviour
             if (waveTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(heart);
-                newbossAttack.transform.position = new Vector3(transform.position.x, 1f, .03f);
+                newbossAttack.transform.position = new Vector3(transform.position.x, -.43f, floorSketch.transform.position.z);
                 waveTimer = 4f;
             }
 
@@ -76,7 +77,7 @@ public class boss : MonoBehaviour
             if (columnTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(bone);
-                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, -1.12f);
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, floorSketch.transform.position.z - 1);
                 columnTimer = 2f;
             }
 
