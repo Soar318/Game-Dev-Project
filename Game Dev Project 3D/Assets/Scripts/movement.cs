@@ -175,6 +175,7 @@ public class movement : MonoBehaviour {
             floorSketch.transform.position = new Vector3(-1.7025f, -3.22f, -2.67f);
             floorLine.transform.position = new Vector3(-1.7025f, -3.22f, -1f);
             floorColor.transform.position = new Vector3(-1.7025f, -3.22f, 0.86f);
+            myAnimator.Play("Player Run Color");
         }
 
         //PAUSE
