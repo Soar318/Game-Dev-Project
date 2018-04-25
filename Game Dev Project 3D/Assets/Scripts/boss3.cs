@@ -22,7 +22,7 @@ public class boss3 : MonoBehaviour {
     Animator myAnimator;
 
     float pelletTimer = 1.5f;
-    float waveTimer = 1f;
+    float waveTimer = 2f;
     float columnTimer = 4f;
     float idleTimer = 3f;
     public float attackCounterTimer1 = 5f;
@@ -66,8 +66,8 @@ public class boss3 : MonoBehaviour {
             if (waveTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(egg);
-                newbossAttack.transform.position = new Vector3(transform.position.x, -.43f, floorColor.transform.position.z);
-                waveTimer = 1f;
+                newbossAttack.transform.position = new Vector3(transform.position.x, -.43f, floorColor.transform.position.z - 1);
+                waveTimer = 2f;
             }
             myAnimator.Play("Boss 3 Attack");
         }
@@ -76,7 +76,7 @@ public class boss3 : MonoBehaviour {
             if (columnTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(stick);
-                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, floorColor.transform.position.z);
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 15f, floorColor.transform.position.z);
                 columnTimer = 4f;
             }
             myAnimator.Play("Boss 3 Attack");
@@ -92,6 +92,7 @@ public class boss3 : MonoBehaviour {
 
         if (health <= 0)
         {
+            healthBar.rectTransform.localScale = new Vector3(0, 0, 0);
             camera.GetComponent<camerashake>().camShake = true;
             Destroy(gameObject);
         }
@@ -121,8 +122,8 @@ public class boss3 : MonoBehaviour {
         if (collisionInfo.gameObject.tag == "charge attack" && rabbit.GetComponent<movement>().floorNumber == 3)
         {
             isHurt = true;
-            health -= 8;
-            healthBar.rectTransform.localScale -= new Vector3(.3875f, 0, 0);
+            health -= 7;
+            healthBar.rectTransform.localScale -= new Vector3(.721f, 0, 0);
         }
     }
 

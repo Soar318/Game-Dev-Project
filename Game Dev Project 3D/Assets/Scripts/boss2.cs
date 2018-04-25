@@ -67,7 +67,7 @@ public class boss2 : MonoBehaviour {
             if (waveTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(rat);
-                newbossAttack.transform.position = new Vector3(transform.position.x, -.43f, floorLine.transform.position.z);
+                newbossAttack.transform.position = new Vector3(transform.position.x, -.43f, floorLine.transform.position.z - 1);
                 waveTimer = 3f;
             }
             myAnimator.Play("Boss 2 Attack");
@@ -78,7 +78,7 @@ public class boss2 : MonoBehaviour {
             if (columnTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(paw);
-                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, floorLine.transform.position.z);
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 15f, floorLine.transform.position.z);
                 columnTimer = 2f;
             }
             myAnimator.Play("Boss 2 Attack");
@@ -97,6 +97,7 @@ public class boss2 : MonoBehaviour {
 
         if (health <= 0)
         {
+            healthBar.rectTransform.localScale = new Vector3(0, 0, 0);
             camera.GetComponent<camerashake>().camShake = true;
             Destroy(gameObject);
         }
@@ -126,8 +127,8 @@ public class boss2 : MonoBehaviour {
         if (collisionInfo.gameObject.tag == "charge attack" && rabbit.GetComponent<movement>().floorNumber == 2)
         {
             isHurt = true;
-            health -= 8;
-            healthBar.rectTransform.localScale -= new Vector3(.3875f, 0, 0);
+            health -= 7;
+            healthBar.rectTransform.localScale -= new Vector3(.721f, 0, 0);
         }
     }
 

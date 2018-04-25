@@ -62,7 +62,6 @@ public class movement : MonoBehaviour {
     public Image healthBar;
     public Image chargeBar;
 
-
     // Use this for initialization
     void Start()
     {
@@ -315,7 +314,10 @@ public class movement : MonoBehaviour {
             healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
             camera.GetComponent<camerashake>().camShake = true;
             pitchChange = true;
-           
+            chargeCounter = 0;
+            chargeBar.rectTransform.localScale = new Vector3(0, 0.3839271f, 2.249413f);
+
+
         }
         if (collisionInfo.gameObject.tag == "line attack" && floorNumber == 2)
         {
@@ -324,6 +326,8 @@ public class movement : MonoBehaviour {
             healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
             camera.GetComponent<camerashake>().camShake = true;
             pitchChange = true;
+            chargeCounter = 0;
+            chargeBar.rectTransform.localScale = new Vector3(0, 0.3839271f, 2.249413f);
 
         }
         if (collisionInfo.gameObject.tag == "color attack" && floorNumber == 3)
@@ -333,6 +337,8 @@ public class movement : MonoBehaviour {
             healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
             camera.GetComponent<camerashake>().camShake = true;
             pitchChange = true;
+            chargeCounter = 0;
+            chargeBar.rectTransform.localScale = new Vector3(0, 0.3839271f, 2.249413f);
 
         }
     }
