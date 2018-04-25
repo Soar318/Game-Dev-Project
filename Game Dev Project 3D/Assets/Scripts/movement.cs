@@ -10,16 +10,24 @@ public class movement : MonoBehaviour {
     public float xSpeed = 13f;
     public float ySpeed = 17f;
     public int floorNumber = 1;
-    public int health = 5;
+    public float health = 5;
     public float chargeCounter = 0;
     public float attackCooldown = .5f;
+
+    float deadCounter = .5f;
+
+    public float pitchCounter = .1f;
+    public float pitchDuration = .5f;
 
     Rigidbody myRigidbody;
     SpriteRenderer mySprite;
     Animator myAnimator;
+    AudioSource myAudio;
 
     private bool isPaused = false;
     private bool noHealth = false;
+    public bool camShake = false;
+    public bool pitchChange = false;
 
     public GameObject carrotSketch;
     public GameObject carrotLine;
@@ -32,12 +40,17 @@ public class movement : MonoBehaviour {
     public GameObject floor1Background;
     public GameObject floor2Background;
     public GameObject floor3Background;
+
     public GameObject floorSketch;
     public GameObject floorLine;
     public GameObject floorColor;
+
     public GameObject boss1;
     public GameObject boss2;
     public GameObject boss3;
+
+    public GameObject black;
+    public GameObject camera;
 
     public Text paused;
     public Text restart;
@@ -49,12 +62,14 @@ public class movement : MonoBehaviour {
     public Image healthBar;
     public Image chargeBar;
 
+
     // Use this for initialization
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
         mySprite = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
+        myAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -95,6 +110,7 @@ public class movement : MonoBehaviour {
             }
         }
 
+        //CHARGE
         if (Input.GetKey(KeyCode.LeftShift) && (!Input.GetKey(KeyCode.Space)))
         {
             chargeCounter += Time.deltaTime;
@@ -181,18 +197,20 @@ public class movement : MonoBehaviour {
         //PAUSE
         if (isPaused == true)
         {
+            black.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, .5f);
             paused.color = new Color(1, 1, 1, 1);
             restart.color = new Color(1, 1, 1, 1);
             mainMenu.color = new Color(1, 1, 1, 1);
             Time.timeScale = 0;
+            camera.GetComponent<camerashake>().camShake = false;
         }
         else if (isPaused == false)
         {
+            black.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
             paused.color = new Color(1, 1, 1, 0);
             restart.color = new Color(1, 1, 1, 0);
             mainMenu.color = new Color(1, 1, 1, 0);
             Time.timeScale = 1;
-
         }
         if (Input.GetKeyDown(KeyCode.P) && isPaused != true)
         {
@@ -211,7 +229,7 @@ public class movement : MonoBehaviour {
         if (Input.GetKey(KeyCode.Escape) && isPaused != false)
         {
             SceneManager.LoadScene("Start Menu");
-            isPaused = false;
+            Time.timeScale = 1;
         }
 
         //YOU LOSE
@@ -221,13 +239,16 @@ public class movement : MonoBehaviour {
         }
         if (noHealth == true)
         {
+            black.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, .5f);
             youLost.color = new Color(1, 1, 1, 1);
             quit.color = new Color(1, 1, 1, 1);
             tryAgain.color = new Color(1, 1, 1, 1);
             Time.timeScale = 0;
+            camera.GetComponent<camerashake>().camShake = false;
         }
         else if (noHealth == false)
         {
+            black.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
             youLost.color = new Color(1, 1, 1, 0);
             quit.color = new Color(1, 1, 1, 0);
             tryAgain.color = new Color(1, 1, 1, 0);
@@ -243,9 +264,45 @@ public class movement : MonoBehaviour {
             noHealth = false;
         }
 
+        //YOU WIN
         if (boss1 == null && boss2 == null && boss3 == null)
         {
             SceneManager.LoadScene("Win");
+            camera.GetComponent<camerashake>().camShake = false;
+        }
+        if (boss1 == null || boss2 == null || boss3 == null)
+        {
+            deadCounter -= Time.deltaTime;
+        }
+        if (deadCounter < 0)
+        {
+            camera.GetComponent<camerashake>().camShake = false;
+            deadCounter = .5f;
+        }
+
+        //MUSIC CHANGE
+        if (pitchChange == true)
+        {
+            pitchDuration -= Time.deltaTime;
+            if (pitchDuration < 0)
+            {
+                pitchChange = false;
+                pitchDuration = .5f;
+            }
+
+            pitchCounter -= Time.deltaTime;
+            if (pitchCounter > 0)
+            {
+                myAudio.pitch = Random.value;
+            }
+            if (pitchCounter < 0)
+            {
+                pitchCounter = .1f;
+            }
+        }
+        if (pitchChange == false)
+        {
+            myAudio.pitch = 1;
         }
     }
 
@@ -256,24 +313,34 @@ public class movement : MonoBehaviour {
             health -= 1;
             mySprite.color = new Color(1, 0, 0);
             healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
+            camera.GetComponent<camerashake>().camShake = true;
+            pitchChange = true;
+           
         }
         if (collisionInfo.gameObject.tag == "line attack" && floorNumber == 2)
         {
             health -= 1;
             mySprite.color = new Color(1, 0, 0);
             healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
+            camera.GetComponent<camerashake>().camShake = true;
+            pitchChange = true;
+
         }
         if (collisionInfo.gameObject.tag == "color attack" && floorNumber == 3)
         {
             health -= 1;
             mySprite.color = new Color(1, 0, 0);
             healthBar.rectTransform.localScale -= new Vector3(.6358f, 0, 0);
+            camera.GetComponent<camerashake>().camShake = true;
+            pitchChange = true;
+
         }
     }
 
     void OnTriggerExit(Collider collisionInfo)
     {
         mySprite.color = new Color(1, 1, 1);
+        camera.GetComponent<camerashake>().camShake = false;
     }
 
 }

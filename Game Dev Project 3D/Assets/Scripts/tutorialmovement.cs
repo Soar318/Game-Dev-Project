@@ -156,6 +156,7 @@ public class tutorialmovement : MonoBehaviour
             floorSketch.transform.position = new Vector3(-.2179f, -2.2f, -5.64f);
             floorLine.transform.position = new Vector3(-.2179f, -2.24f, -4.37f);
             floorColor.transform.position = new Vector3(-.2179f, -2.24f, -3.0317f);
+            myAnimator.Play("Player Run Color");
         }
     }
 

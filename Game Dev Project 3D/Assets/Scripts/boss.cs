@@ -11,10 +11,11 @@ public class boss : MonoBehaviour
     public GameObject bone;
     public GameObject rabbit;
     public GameObject floorSketch;
+    public GameObject camera;
 
     public Image healthBar;
 
-    public int health = 50;
+    public int health = 30;
     public int attackCounter1;
 
     SpriteRenderer mySpriteRenderer;
@@ -77,7 +78,7 @@ public class boss : MonoBehaviour
             if (columnTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(bone);
-                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, floorSketch.transform.position.z - 1);
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, floorSketch.transform.position.z);
                 columnTimer = 2f;
             }
 
@@ -95,6 +96,7 @@ public class boss : MonoBehaviour
 
         if (health <= 0)
         {
+            camera.GetComponent<camerashake>().camShake = true;
             Destroy(gameObject);
         }
 
@@ -119,14 +121,14 @@ public class boss : MonoBehaviour
         {
             isHurt = true;
             health -= 1;
-            healthBar.rectTransform.localScale -= new Vector3(.06f, 0, 0);
+            healthBar.rectTransform.localScale -= new Vector3(.103f, 0, 0);
         }
 
         if (collisionInfo.gameObject.tag == "charge attack" && rabbit.GetComponent<movement>().floorNumber == 1)
         {
             isHurt = true;
-            health -= 5;
-            healthBar.rectTransform.localScale -= new Vector3(.3f, 0, 0);
+            health -= 8;
+            healthBar.rectTransform.localScale -= new Vector3(.3875f, 0, 0);
         }
     }
 

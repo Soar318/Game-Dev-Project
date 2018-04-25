@@ -11,17 +11,18 @@ public class boss3 : MonoBehaviour {
     public GameObject stick;
     public GameObject rabbit;
     public GameObject floorColor;
+    public GameObject camera;
 
     public Image healthBar;
 
-    public int health = 50;
+    public int health = 30;
     public int attackCounter1;
 
     SpriteRenderer mySpriteRenderer;
     Animator myAnimator;
 
     float pelletTimer = 1.5f;
-    float waveTimer = 2f;
+    float waveTimer = 1f;
     float columnTimer = 4f;
     float idleTimer = 3f;
     public float attackCounterTimer1 = 5f;
@@ -66,7 +67,7 @@ public class boss3 : MonoBehaviour {
             {
                 GameObject newbossAttack = Instantiate(egg);
                 newbossAttack.transform.position = new Vector3(transform.position.x, -.43f, floorColor.transform.position.z);
-                waveTimer = 2f;
+                waveTimer = 1f;
             }
             myAnimator.Play("Boss 3 Attack");
         }
@@ -75,7 +76,7 @@ public class boss3 : MonoBehaviour {
             if (columnTimer <= 0)
             {
                 GameObject newbossAttack = Instantiate(stick);
-                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, floorColor.transform.position.z - 1);
+                newbossAttack.transform.position = new Vector3(Random.Range(-7f, 3f), 12.45f, floorColor.transform.position.z);
                 columnTimer = 4f;
             }
             myAnimator.Play("Boss 3 Attack");
@@ -89,9 +90,9 @@ public class boss3 : MonoBehaviour {
             myAnimator.Play("Boss 3 Idle");
         }
 
-
         if (health <= 0)
         {
+            camera.GetComponent<camerashake>().camShake = true;
             Destroy(gameObject);
         }
 
@@ -115,13 +116,13 @@ public class boss3 : MonoBehaviour {
         {
             isHurt = true;
             health -= 1;
-            healthBar.rectTransform.localScale -= new Vector3(.06f, 0, 0);
+            healthBar.rectTransform.localScale -= new Vector3(.103f, 0, 0);
         }
         if (collisionInfo.gameObject.tag == "charge attack" && rabbit.GetComponent<movement>().floorNumber == 3)
         {
             isHurt = true;
-            health -= 5;
-            healthBar.rectTransform.localScale -= new Vector3(.3f, 0, 0);
+            health -= 8;
+            healthBar.rectTransform.localScale -= new Vector3(.3875f, 0, 0);
         }
     }
 
