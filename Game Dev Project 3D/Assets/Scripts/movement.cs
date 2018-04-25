@@ -62,6 +62,8 @@ public class movement : MonoBehaviour {
     public Image healthBar;
     public Image chargeBar;
 
+    public AudioClip zip;
+
     // Use this for initialization
     void Start()
     {
@@ -152,6 +154,11 @@ public class movement : MonoBehaviour {
         floor2Background.transform.position = new Vector3(.1f, -13f, 8.15f);
         floor3Background.transform.position = new Vector3(.1f, -13f, 8.15f);
 
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
+        {
+            myAudio.PlayOneShot(zip);
+        }
+
         if (floorNumber == 1)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -163,6 +170,7 @@ public class movement : MonoBehaviour {
             floorLine.transform.position = new Vector3(-1.7025f, -3.22f, 3.3f);
             floorColor.transform.position = new Vector3(-1.7025f, -3.22f, 6f);
             myAnimator.Play("Player Run Sketch");
+            
         }
         else if (floorNumber == 2)
         {

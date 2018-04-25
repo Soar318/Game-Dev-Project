@@ -12,6 +12,8 @@ public class boss2 : MonoBehaviour {
     public GameObject rabbit;
     public GameObject floorLine;
     public GameObject camera;
+    public AudioClip explode;
+
 
     public Image healthBar;
 
@@ -20,6 +22,7 @@ public class boss2 : MonoBehaviour {
 
     SpriteRenderer mySpriteRenderer;
     Animator myAnimator;
+    AudioSource myAudio;
 
     float pelletTimer = 2f;
     float waveTimer = 3f;
@@ -34,6 +37,8 @@ public class boss2 : MonoBehaviour {
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
+        myAudio = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -97,9 +102,11 @@ public class boss2 : MonoBehaviour {
 
         if (health <= 0)
         {
+            myAudio.PlayOneShot(explode);
+            mySpriteRenderer.enabled = false;
             healthBar.rectTransform.localScale = new Vector3(0, 0, 0);
             camera.GetComponent<camerashake>().camShake = true;
-            Destroy(gameObject);
+            Destroy(gameObject, explode.length);
         }
 
         if (rabbit.GetComponent<movement>().floorNumber == 1 || rabbit.GetComponent<movement>().floorNumber == 3)
